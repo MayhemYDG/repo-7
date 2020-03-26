@@ -1,3 +1,6 @@
+note: due to python2 support, this fork has been reverted to latest stable release which supports py2.
+
+
 *******************
 marshmallow-jsonapi
 *******************
