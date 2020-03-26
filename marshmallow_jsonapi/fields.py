@@ -108,6 +108,10 @@ class Relationship(BaseRelationship):
         self.type_ = type_
         self.__id_field = id_field
         self.__schema = schema
+
+        self.__use_serialization_cache = True
+        self.__serialization_cache = {}
+
         super(Relationship, self).__init__(**kwargs)
 
     @property
@@ -272,7 +276,14 @@ class Relationship(BaseRelationship):
         return ret
 
     def _serialize_included(self, value):
-        result = self.schema.dump(value)
+        result = None
+        if self.__use_serialization_cache:
+            result = self.__serialization_cache.get(id(value))
+            if result is None:
+                result = self.schema.dump(value)
+                self.__serialization_cache[id(value)] = result
+        else:
+            result = self.schema.dump(value)
 
         if _MARSHMALLOW_VERSION_INFO[0] < 3:
             data = result.data
