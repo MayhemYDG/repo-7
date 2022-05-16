@@ -110,7 +110,6 @@ class Relationship(BaseRelationship):
         self.__schema = schema
 
         self.__use_serialization_cache = True
-        self.__serialization_cache = {}
 
         super(Relationship, self).__init__(**kwargs)
 
@@ -278,10 +277,14 @@ class Relationship(BaseRelationship):
     def _serialize_included(self, value):
         result = None
         if self.__use_serialization_cache:
-            result = self.__serialization_cache.get(id(value))
+            try:
+                cache = self._serialization_cache
+            except AttributeError:
+                cache = self._serialization_cache = {}
+            result = cache.get(id(value))
             if result is None:
                 result = self.schema.dump(value)
-                self.__serialization_cache[id(value)] = result
+                cache[id(value)] = result
         else:
             result = self.schema.dump(value)
 
