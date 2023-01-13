@@ -281,10 +281,13 @@ class Relationship(BaseRelationship):
                 cache = self._serialization_cache
             except AttributeError:
                 cache = self._serialization_cache = {}
-            result = cache.get(id(value))
+            value_id = self._get_id(value)
+            assert value_id is not None
+            cache_key = "%s.%s" % (value.__class__.__name__, value_id)
+            result = cache.get(cache_key)
             if result is None:
                 result = self.schema.dump(value)
-                cache[id(value)] = result
+                cache[cache_key] = result
         else:
             result = self.schema.dump(value)
 
