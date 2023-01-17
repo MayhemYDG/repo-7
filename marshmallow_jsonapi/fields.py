@@ -276,13 +276,12 @@ class Relationship(BaseRelationship):
 
     def _serialize_included(self, value):
         result = None
-        if self.__use_serialization_cache:
+        value_id = self._get_id(value)
+        if self.__use_serialization_cache and value_id is not None:
             try:
                 cache = self._serialization_cache
             except AttributeError:
                 cache = self._serialization_cache = {}
-            value_id = self._get_id(value)
-            assert value_id is not None
             cache_key = "%s.%s" % (value.__class__.__name__, value_id)
             result = cache.get(cache_key)
             if result is None:
