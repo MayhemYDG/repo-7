@@ -15,7 +15,7 @@ import java.util.*
 
 class NielsenDTVRDestination : DestinationPlugin() {
     companion object {
-        private const val NIELSEN_DCR_FULL_KEY = "Nielsen DTVR"
+        private const val NIELSEN_DTVR_FULL_KEY = "Nielsen DTVR"
     }
 
     private var previousID3: String = ""
@@ -24,7 +24,7 @@ class NielsenDTVRDestination : DestinationPlugin() {
     internal var id3EventNames: ArrayList<String> = arrayListOf()
     private var id3PropertyName: String = ""
 
-    override val key: String = NIELSEN_DCR_FULL_KEY
+    override val key: String = NIELSEN_DTVR_FULL_KEY
 
     override fun update(settings: Settings, type: Plugin.UpdateType) {
         super.update(settings, type)
@@ -40,36 +40,35 @@ class NielsenDTVRDestination : DestinationPlugin() {
     }
 
     override fun track(payload: TrackEvent): BaseEvent {
-        if(!EventVideoEnum.isVideoEvent(payload.event)) {
-            analytics.log("Event is not Video")
-            return payload
-        }
+        val trackEnum: EventVideoEnum? = EventVideoEnum[payload.event]
         val nielsenProperties: Map<String, String> = payload.properties.asStringMap()
-        when (EventVideoEnum[payload.event]) {
-            EventVideoEnum.ContentStarted -> {
-                play(nielsenProperties)
-                loadMetadata(nielsenProperties)
-            }
-            EventVideoEnum.PlaybackResumed,
-            EventVideoEnum.PlaybackSeekCompleted,
-            EventVideoEnum.PlaybackBufferCompleted -> {
-                play(nielsenProperties)
-            }
-            EventVideoEnum.PlaybackPaused,
-            EventVideoEnum.PlaybackInterrupted,
-            EventVideoEnum.ContentCompleted,
-            EventVideoEnum.PlaybackBufferStarted,
-            EventVideoEnum.PlaybackSeekStarted,
+        if(trackEnum!=null) {
+            when (trackEnum) {
+                EventVideoEnum.ContentStarted -> {
+                    play(nielsenProperties)
+                    loadMetadata(nielsenProperties)
+                }
+                EventVideoEnum.PlaybackResumed,
+                EventVideoEnum.PlaybackSeekCompleted,
+                EventVideoEnum.PlaybackBufferCompleted -> {
+                    play(nielsenProperties)
+                }
+                EventVideoEnum.PlaybackPaused,
+                EventVideoEnum.PlaybackInterrupted,
+                EventVideoEnum.ContentCompleted,
+                EventVideoEnum.PlaybackBufferStarted,
+                EventVideoEnum.PlaybackSeekStarted,
 //            Nielsen requested Video Playback Completed and new Video Playback Exited event map to stop as end is not used for DTVR
-            EventVideoEnum.PlaybackExited,
-            EventVideoEnum.PlaybackCompleted -> {
-                stop()
-            }
-            EventVideoEnum.ApplicationBackgrounded -> {
-                stop()
-            }
-            else -> {
-                analytics.log("Video Event not found")
+                EventVideoEnum.PlaybackExited,
+                EventVideoEnum.PlaybackCompleted -> {
+                    stop()
+                }
+                EventVideoEnum.ApplicationBackgrounded -> {
+                    stop()
+                }
+                else -> {
+                    analytics.log("Video Event not found")
+                }
             }
         }
         if (id3EventNames.contains(payload.event.lowercase(Locale.getDefault()))) {
@@ -176,7 +175,7 @@ class NielsenDTVRDestination : DestinationPlugin() {
 
 internal enum class EventVideoEnum(
     /**
-     * Retrieves the Neilsen DCR video event name. This is different from `enum.name()`
+     * Retrieves the Neilsen DTVR video event name. This is different from `enum.name()`
      *
      * @return Event name.
      */
@@ -209,7 +208,7 @@ internal enum class EventVideoEnum(
             if (names!!.containsKey(name)) {
                 return names!![name]
             }
-            throw IllegalArgumentException("$name is not a valid video event")
+            return null
         }
         /**
          * Identifies if the event is a video event.
