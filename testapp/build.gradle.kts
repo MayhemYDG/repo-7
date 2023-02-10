@@ -8,12 +8,13 @@ android {
 
     defaultConfig {
         applicationId = "com.segment.analytics.destinations.mydestination.testapp"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 31
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "SEGMENT_WRITE_KEY", "\"YOUR_SEGMENT_WRITE_KEY\"")
     }
 
     buildTypes {
@@ -44,4 +45,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation("com.segment.analytics.kotlin:android:1.6.2")
+
 }

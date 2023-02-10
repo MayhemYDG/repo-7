@@ -4,18 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/bt_play_video"
+    tools:context="com.segment.analytics.destinations.nielsendtvr.testapp.VideoActivity">
+    <com.segment.analytics.destinations.nielsendtvr.testapp.AnalyticsVideoView
+        android:id="@+id/cv_video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/play_video"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
