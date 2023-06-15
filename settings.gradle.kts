@@ -1,4 +1,4 @@
-rootProject.name = "analytics-kotlin-integration-nielsen-dtvr"
+rootProject.name = "analytics-kotlin-nielsen-dtvr"
 include(":lib")
 includeBuild("publishing-plugins")
 include(":testapp")
