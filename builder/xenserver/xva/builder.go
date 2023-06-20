@@ -61,6 +61,10 @@ func (self *Builder) Prepare(raws ...interface{}) (params []string, warns []stri
 		self.config.VMMemory = 1024
 	}
 
+	if self.config.Firmware == "" {
+		self.config.Firmware = "bios"
+	}
+
 	if len(self.config.PlatformArgs) == 0 {
 		pargs := make(map[string]string)
 		pargs["viridian"] = "false"
