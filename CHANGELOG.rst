@@ -2,6 +2,14 @@
 Changelog
 *********
 
+0.21.4 (2023-07-10)
+===================
+
+Other changes:
+
+* Import from `collections.abc` for compatibility with Python 3.10.
+
+
 0.21.3 (2020-03-20)
 ===================
 
