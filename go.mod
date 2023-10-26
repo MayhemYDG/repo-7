@@ -1,4 +1,4 @@
-module github.com/DependencyTrack/client-go
+module github.com/monzo/dependency-track-client-go
 
 go 1.19
 
