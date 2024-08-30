@@ -3,6 +3,8 @@
 
 Saluki is an experimental toolkit for building telemetry data planes in Rust.
 
+**This fork is used to allow Saluki to be used on older versions of Rust. It currently supports 1.76.0.**
+
 ## Please Read: experimental repository
 
 This repository contains experimental code that is **UNSUPPORTED** and may cease to receive further updates at **ANY TIME**.
