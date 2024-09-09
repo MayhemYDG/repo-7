@@ -17,9 +17,9 @@ marshmallow-jsonapi
    :target: https://marshmallow-jsonapi.readthedocs.io/
    :alt: Documentation
 
-.. image:: https://badgen.net/badge/marshmallow/2,3?list=1
+.. image:: https://badgen.net/badge/marshmallow/3
     :target: https://marshmallow.readthedocs.io/en/latest/upgrading.html
-    :alt: marshmallow 2/3 compatible
+    :alt: marshmallow 3 compatible
 
 .. image:: https://badgen.net/badge/code%20style/black/000
     :target: https://github.com/ambv/black
@@ -55,11 +55,10 @@ marshmallow-jsonapi provides a simple way to produce JSON API-compliant data in 
 
         class Meta:
             type_ = "posts"
-            strict = True
 
 
     post_schema = PostSchema()
-    post_schema.dump(post).data
+    post_schema.dump(post)
     # {
     #     "data": {
     #         "id": "1",
@@ -101,13 +100,14 @@ Full documentation is available at https://marshmallow-jsonapi.readthedocs.io/.
 Requirements
 ============
 
-- Python >= 2.7 or >= 3.5
+- Python >= 3.6
 
 Project Links
 =============
 
 - Docs: http://marshmallow-jsonapi.readthedocs.io/
 - Changelog: http://marshmallow-jsonapi.readthedocs.io/en/latest/changelog.html
+- Contributing Guidelines: https://marshmallow-jsonapi.readthedocs.io/en/latest/contributing.html
 - PyPI: https://pypi.python.org/pypi/marshmallow-jsonapi
 - Issues: https://github.com/marshmallow-code/marshmallow-jsonapi/issues
 
