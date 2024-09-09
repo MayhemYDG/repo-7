@@ -1,9 +1,9 @@
 import re
 from setuptools import setup, find_packages
 
-INSTALL_REQUIRES = ("marshmallow>=2.15.2",)
+INSTALL_REQUIRES = ("marshmallow>=3.22.0",)
 EXTRAS_REQUIRE = {
-    "tests": ["pytest", "mock", "faker==4.18.0", "Flask==1.1.2"],
+    "tests": ["pytest", "mock", "faker", "Flask"],
     "lint": ["flake8==3.9.0", "flake8-bugbear==20.11.1", "pre-commit~=2.0"],
 }
 EXTRAS_REQUIRE["dev"] = EXTRAS_REQUIRE["tests"] + EXTRAS_REQUIRE["lint"] + ["tox"]
@@ -57,10 +57,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.12",
     ],
     test_suite="tests",
     project_urls={
