@@ -29,3 +29,7 @@ Contributors (chronological)
 - Grant Harris `@grantHarris <https://github.com/grantHarris>`_
 - Robert Sawicki `@ww3pl <https://github.com/ww3pl>`_
 - `@aberres <https://github.com/aberres>`_
+- George Alton `@georgealton <https://github.com/georgealton>`_
+- Areeb Jamal `@iamareebjamal <https://github.com/iamareebjamal>`_
+- Suren Khorenyan `@mahenzon <https://github.com/mahenzon>`_
+- Karthikeyan Singaravelan `@tirkarthi <https://github.com/tirkarthi>`_

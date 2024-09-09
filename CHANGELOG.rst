@@ -17,6 +17,56 @@ Other changes:
 
 * Add serialization cache
 
+0.24.0 (2020-12-27)
+===================
+
+Deprecations/Removals:
+
+* Drop support for marshmallow 2, which is now EOL (:pr:`332`).
+
+Bug fixes:
+
+* Fix behavior when serializing ``None`` (:pr:`302`). Thanks :user:`mahenzon`.
+
+Other changes:
+
+* Test against Python 3.8 and 3.9 (:pr:`332`).
+
+0.23.2 (2020-07-20)
+===================
+
+Bug fixes:
+
+* Import from `collections.abc` for forward-compatibility with Python 3.10 (:issue:`318`).
+  Thanks :user:`tirkarthi`.
+
+0.23.1 (2020-03-22)
+===================
+
+Bug fixes:
+
+* Fix nested fields validation error formatting (:issue:`120`).
+  Thanks :user:`mahenzon` and :user:`debonzi` for the PRs.
+
+0.23.0 (2020-02-02)
+===================
+
+* Improve performance of link generation from `Relationship` (:issue:`277`).
+  Thanks :user:`iamareebjamal` for reporting and fixing.
+
+0.22.0 (2019-09-15)
+===================
+
+Deprecation/Removals:
+
+* Drop support for Python 2.7 and 3.5.
+  Only Python>=3.6 is supported (:issue:`251`).
+* Drop support for marshmallow 3 pre-releases. Only stable versions >=2.15.2 are supported.
+* Remove ``fields.Meta``.
+
+Bug fixes:
+
+* Address ``DeprecationWarning`` raised by ``Field.fail`` on marshmallow 3.
 
 0.21.2 (2019-07-01)
 ===================

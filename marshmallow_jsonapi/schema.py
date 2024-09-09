@@ -1,31 +1,23 @@
-# -*- coding: utf-8 -*-
+import itertools
+
 import marshmallow as ma
 from marshmallow.exceptions import ValidationError
 from marshmallow.utils import is_collection
 
-from .compat import iteritems, PY2
 from .fields import BaseRelationship, DocumentMeta, ResourceMeta
 from .fields import _RESOURCE_META_LOAD_FROM, _DOCUMENT_META_LOAD_FROM
 from .exceptions import IncorrectTypeError
-from .utils import resolve_params, _MARSHMALLOW_VERSION_INFO, get_dump_key
+from .utils import resolve_params
 
 TYPE = "type"
 ID = "id"
 
 
-def plain_function(f):
-    """Ensure that ``callable`` is a plain function rather than an unbound method."""
-    if PY2 and f:
-        return f.im_func
-    # Python 3 doesn't have bound/unbound methods, so don't need to do anything
-    return f
-
-
 class SchemaOpts(ma.SchemaOpts):
     def __init__(self, meta, *args, **kwargs):
-        super(SchemaOpts, self).__init__(meta, *args, **kwargs)
+        super().__init__(meta, *args, **kwargs)
         self.type_ = getattr(meta, "type_", None)
-        self.inflect = plain_function(getattr(meta, "inflect", None))
+        self.inflect = getattr(meta, "inflect", None)
         self.self_url = getattr(meta, "self_url", None)
         self.self_url_kwargs = getattr(meta, "self_url_kwargs", None)
         self.self_url_many = getattr(meta, "self_url_many", None)
@@ -83,7 +75,7 @@ class Schema(ma.Schema):
 
     def __init__(self, *args, **kwargs):
         self.include_data = kwargs.pop("include_data", ())
-        super(Schema, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if self.include_data:
             self.check_relations(self.include_data)
 
@@ -112,7 +104,7 @@ class Schema(ma.Schema):
 
             local_field = fields[0]
             if local_field not in self.fields:
-                raise ValueError('Unknown field "{}"'.format(local_field))
+                raise ValueError(f'Unknown field "{local_field}"')
 
             field = self.fields[local_field]
             if not isinstance(field, BaseRelationship):
@@ -170,9 +162,9 @@ class Schema(ma.Schema):
             payload[_RESOURCE_META_LOAD_FROM] = item["meta"]
         if self.document_meta:
             payload[_DOCUMENT_META_LOAD_FROM] = self.document_meta
-        for key, value in iteritems(item.get("attributes", {})):
+        for key, value in item.get("attributes", {}).items():
             payload[key] = value
-        for key, value in iteritems(item.get("relationships", {})):
+        for key, value in item.get("relationships", {}).items():
             # Fold included data related to this relationship into the item, so
             # that we can deserialize the whole objects instead of just IDs.
             if self.included_data:
@@ -223,15 +215,9 @@ class Schema(ma.Schema):
         return self.unwrap_item(data)
 
     def on_bind_field(self, field_name, field_obj):
-        """Schema hook override. When binding fields, set ``data_key`` (on marshmallow 3) or
-        load_from (on marshmallow 2) to the inflected form of field_name.
-        """
-        if _MARSHMALLOW_VERSION_INFO[0] < 3:
-            if not field_obj.load_from:
-                field_obj.load_from = self.inflect(field_name)
-        else:
-            if not field_obj.data_key:
-                field_obj.data_key = self.inflect(field_name)
+        """Schema hook override. When binding fields, set ``data_key`` to the inflected form of field_name."""
+        if not field_obj.data_key:
+            field_obj.data_key = self.inflect(field_name)
         return None
 
     def _do_load(self, data, many=None, **kwargs):
@@ -249,7 +235,7 @@ class Schema(ma.Schema):
         self.document_meta = data.get("meta", {})
 
         try:
-            result = super(Schema, self)._do_load(data, many=many, **kwargs)
+            result = super()._do_load(data, many=many, **kwargs)
         except ValidationError as err:  # strict mode
             error_messages = err.messages
             if "_schema" in error_messages:
@@ -257,14 +243,6 @@ class Schema(ma.Schema):
             formatted_messages = self.format_errors(error_messages, many=many)
             err.messages = formatted_messages
             raise err
-        else:
-            # On marshmallow 2, _do_load returns a tuple (load_data, errors)
-            if _MARSHMALLOW_VERSION_INFO[0] < 3:
-                data, error_messages = result
-                if "_schema" in error_messages:
-                    error_messages = error_messages["_schema"]
-                formatted_messages = self.format_errors(error_messages, many=many)
-                return data, formatted_messages
         return result
 
     def _extract_from_included(self, data):
@@ -296,20 +274,33 @@ class Schema(ma.Schema):
 
         formatted_errors = []
         if many:
-            for index, errors in iteritems(errors):
-                for field_name, field_errors in iteritems(errors):
-                    formatted_errors.extend(
-                        [
-                            self.format_error(field_name, message, index=index)
-                            for message in field_errors
-                        ]
-                    )
+            for index, i_errors in errors.items():
+                formatted_errors.extend(self._get_formatted_errors(i_errors, index))
         else:
-            for field_name, field_errors in iteritems(errors):
-                formatted_errors.extend(
-                    [self.format_error(field_name, message) for message in field_errors]
-                )
+            formatted_errors.extend(self._get_formatted_errors(errors))
+
         return {"errors": formatted_errors}
+
+    def _get_formatted_errors(self, errors, index=None):
+        return itertools.chain(
+            *(
+                [
+                    self.format_error(field_name, message, index=index)
+                    for message in field_errors
+                ]
+                for field_name, field_errors in itertools.chain(
+                    *(self._process_nested_errors(k, v) for k, v in errors.items())
+                )
+            )
+        )
+
+    def _process_nested_errors(self, name, data):
+        if not isinstance(data, dict):
+            return [(name, data)]
+
+        return itertools.chain(
+            *(self._process_nested_errors(f"{name}/{k}", v) for k, v in data.items())
+        )
 
     def format_error(self, field_name, message, index=None):
         """Override-able hook to format a single error message as an Error object.
@@ -353,10 +344,10 @@ class Schema(ma.Schema):
 
         # Get the schema attributes so we can confirm `dump-to` values exist
         attributes = {
-            (get_dump_key(self.fields[field]) or field): field for field in self.fields
+            (self.fields[field].data_key or field): field for field in self.fields
         }
 
-        for field_name, value in iteritems(item):
+        for field_name, value in item.items():
             attribute = attributes[field_name]
             if attribute == ID:
                 ret[ID] = value
@@ -416,7 +407,7 @@ class Schema(ma.Schema):
         return None
 
     def wrap_response(self, data, many):
-        """Wrap data and links according to the JSON API """
+        """Wrap data and links according to the JSON API"""
         ret = {"data": data}
         # self_url_many is still valid when there isn't any data, but self_url
         # may only be included if there is data in the ret
@@ -428,4 +419,4 @@ class Schema(ma.Schema):
 
     def generate_url(self, link, **kwargs):
         """Generate URL with any kwargs interpolated."""
-        return link.format(**kwargs) if link else None
+        return link.format_map(kwargs) if link else None

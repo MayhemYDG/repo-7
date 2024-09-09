@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
 from flask import Flask, url_for
 import pytest
 from werkzeug.routing import BuildError
 
 from marshmallow_jsonapi import fields
 from marshmallow_jsonapi.flask import Relationship, Schema
-from tests.base import unpack
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def app():
     app_ = Flask("testapp")
     app_.config["DEBUG"] = True
@@ -20,15 +18,15 @@ def app():
 
     @app_.route("/posts/<post_id>/")
     def post_detail(post_id):
-        return "Detail for post {}".format(post_id)
+        return f"Detail for post {post_id}"
 
     @app_.route("/posts/<post_id>/comments/")
     def posts_comments(post_id):
-        return "Comments for post {}".format(post_id)
+        return f"Comments for post {post_id}"
 
     @app_.route("/authors/<int:author_id>")
     def author_detail(author_id):
-        return "Detail for author {}".format(author_id)
+        return f"Detail for author {author_id}"
 
     ctx = app_.test_request_context()
     ctx.push()
@@ -87,20 +85,20 @@ class TestSchema:
             InvalidFlaskMetaSchema().dump(post)
 
     def test_self_link_single(self, app, post):
-        data = unpack(self.PostFlaskSchema().dump(post))
+        data = self.PostFlaskSchema().dump(post)
         assert "links" in data
-        assert data["links"]["self"] == "/posts/{}/".format(post.id)
+        assert data["links"]["self"] == f"/posts/{post.id}/"
 
     def test_self_link_many(self, app, posts):
-        data = unpack(self.PostFlaskSchema(many=True).dump(posts))
+        data = self.PostFlaskSchema(many=True).dump(posts)
         assert "links" in data
         assert data["links"]["self"] == "/posts/"
 
         assert "links" in data["data"][0]
-        assert data["data"][0]["links"]["self"] == "/posts/{}/".format(posts[0].id)
+        assert data["data"][0]["links"]["self"] == f"/posts/{posts[0].id}/"
 
     def test_schema_with_empty_relationship(self, app, post_with_null_author):
-        data = unpack(self.PostAuthorFlaskSchema().dump(post_with_null_author))
+        data = self.PostAuthorFlaskSchema().dump(post_with_null_author)
         assert "relationships" not in data
 
 

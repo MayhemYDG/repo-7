@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 """Includes all the fields classes from `marshmallow.fields` as well as
 fields for serializing JSON API-formatted hyperlinks.
 """
 import collections.abc
-import warnings
 
 from marshmallow import ValidationError, class_registry
 from marshmallow.fields import Field
@@ -11,10 +9,9 @@ from marshmallow.fields import Field
 # Make core fields importable from marshmallow_jsonapi
 from marshmallow.fields import *  # noqa
 from marshmallow.base import SchemaABC
-from marshmallow.utils import is_collection, missing as missing_
+from marshmallow.utils import is_collection, missing as missing_, get_value
 
-from .compat import basestring
-from .utils import get_value, resolve_params, iteritems, _MARSHMALLOW_VERSION_INFO
+from .utils import resolve_params
 
 
 _RECURSIVE_NESTED = "self"
@@ -85,6 +82,7 @@ class Relationship(BaseRelationship):
         self,
         related_url="",
         related_url_kwargs=None,
+        *,
         self_url="",
         self_url_kwargs=None,
         include_resource_linkage=False,
@@ -111,7 +109,7 @@ class Relationship(BaseRelationship):
 
         self.__use_serialization_cache = True
 
-        super(Relationship, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     @property
     def id_field(self):
@@ -134,7 +132,7 @@ class Relationship(BaseRelationship):
         if isinstance(self.__schema, type) and issubclass(self.__schema, SchemaABC):
             self.__schema = self.__schema(only=only, exclude=exclude, context=context)
             return self.__schema
-        if isinstance(self.__schema, basestring):
+        if isinstance(self.__schema, (str, bytes)):
             if self.__schema == _RECURSIVE_NESTED:
                 parent_class = self.parent.__class__
                 self.__schema = parent_class(
@@ -208,7 +206,7 @@ class Relationship(BaseRelationship):
             result = self.schema.load(
                 {"data": data, "included": self.root.included_data}
             )
-            return result.data if _MARSHMALLOW_VERSION_INFO[0] < 3 else result
+            return result
 
         id_value = data.get("id")
 
@@ -225,16 +223,14 @@ class Relationship(BaseRelationship):
             required but unspecified.
         """
         if value is missing_:
-            return super(Relationship, self).deserialize(value, attr, data)
+            return super().deserialize(value, attr, data)
         if not isinstance(value, dict) or "data" not in value:
             # a relationships object does not need 'data' if 'links' is present
             if value and "links" in value:
                 return missing_
             else:
                 raise ValidationError("Must include a `data` key")
-        return super(Relationship, self).deserialize(
-            value["data"], attr, data, **kwargs
-        )
+        return super().deserialize(value["data"], attr, data, **kwargs)
 
     def _deserialize(self, value, attr, obj, **kwargs):
         if self.many:
@@ -245,6 +241,15 @@ class Relationship(BaseRelationship):
         if is_collection(value):
             raise ValidationError("Relationship is not list-like")
         return self.extract_value(value)
+
+    # We have to override serialize because we don't want those fields
+    # to be serialized which are related to the resource but not included
+    # in the request. And we don't have enough control in _serialize
+    # to prevent their serialization
+    def serialize(self, attr, obj, accessor=None):
+        if obj is None or self.include_resource_linkage or self.include_data:
+            return super().serialize(attr, obj, accessor)
+        return self._serialize(None, attr, obj)
 
     def _serialize(self, value, attr, obj):
         dict_class = self.parent.dict_class if self.parent else dict
@@ -290,27 +295,20 @@ class Relationship(BaseRelationship):
         else:
             result = self.schema.dump(value)
 
-        if _MARSHMALLOW_VERSION_INFO[0] < 3:
-            data = result.data
-        else:
-            data = result
+        data = result
 
         item = data["data"]
+        result = self.schema.dump(value)
+        item = result["data"]
         self.root.included_data[(item["type"], item["id"])] = item
-        for key, value in iteritems(self.schema.included_data):
+        for key, value in self.schema.included_data.items():
             self.root.included_data[key] = value
 
     def _get_id(self, value):
-        if _MARSHMALLOW_VERSION_INFO[0] >= 3:
-            if self.__schema:
-                return self.schema.get_attribute(value, self.id_field, value)
-            else:
-                return get_value(value, self.id_field, value)
+        if self.__schema:
+            return self.schema.get_attribute(value, self.id_field, value)
         else:
-            if self.__schema:
-                return self.schema.get_attribute(self.id_field, value, value)
-            else:
-                return get_value(value, self.id_field, value)
+            return get_value(value, self.id_field, value)
 
 
 class DocumentMeta(Field):
@@ -326,7 +324,6 @@ class DocumentMeta(Field):
 
             class Meta:
                 type_ = 'product'
-                strict = True
 
     See: http://jsonapi.org/format/#document-meta
     """
@@ -334,23 +331,20 @@ class DocumentMeta(Field):
     default_error_messages = {"invalid": "Not a valid mapping type."}
 
     def __init__(self, **kwargs):
-        super(DocumentMeta, self).__init__(**kwargs)
-        if _MARSHMALLOW_VERSION_INFO[0] < 3:
-            self.load_from = _DOCUMENT_META_LOAD_FROM
-        else:
-            self.data_key = _DOCUMENT_META_LOAD_FROM
+        super().__init__(**kwargs)
+        self.data_key = _DOCUMENT_META_LOAD_FROM
 
     def _deserialize(self, value, attr, data, **kwargs):
         if isinstance(value, collections.abc.Mapping):
             return value
         else:
-            self.fail("invalid")
+            raise self.make_error("invalid")
 
     def _serialize(self, value, *args, **kwargs):
         if isinstance(value, collections.abc.Mapping):
-            return super(DocumentMeta, self)._serialize(value, *args, **kwargs)
+            return super()._serialize(value, *args, **kwargs)
         else:
-            self.fail("invalid")
+            raise self.make_error("invalid")
 
 
 class ResourceMeta(Field):
@@ -366,7 +360,6 @@ class ResourceMeta(Field):
 
             class Meta:
                 type_ = 'product'
-                strict = True
 
     See: http://jsonapi.org/format/#document-resource-objects
     """
@@ -374,49 +367,17 @@ class ResourceMeta(Field):
     default_error_messages = {"invalid": "Not a valid mapping type."}
 
     def __init__(self, **kwargs):
-        super(ResourceMeta, self).__init__(**kwargs)
-        if _MARSHMALLOW_VERSION_INFO[0] < 3:
-            self.load_from = _RESOURCE_META_LOAD_FROM
-        else:
-            self.data_key = _RESOURCE_META_LOAD_FROM
+        super().__init__(**kwargs)
+        self.data_key = _RESOURCE_META_LOAD_FROM
 
     def _deserialize(self, value, attr, data, **kwargs):
         if isinstance(value, collections.abc.Mapping):
             return value
         else:
-            self.fail("invalid")
+            raise self.make_error("invalid")
 
     def _serialize(self, value, *args, **kwargs):
         if isinstance(value, collections.abc.Mapping):
-            return super(ResourceMeta, self)._serialize(value, *args, **kwargs)
+            return super()._serialize(value, *args, **kwargs)
         else:
-            self.fail("invalid")
-
-
-class Meta(DocumentMeta):
-    """Field which serializes to a "meta object" within a document’s “top level”.
-
-    .. deprecated:: 0.18.0
-       Use :class:`DocumentMeta` instead.
-
-    Examples: ::
-
-        from marshmallow_jsonapi import Schema, fields
-
-        class UserSchema(Schema):
-            id = fields.String()
-            metadata = fields.Meta()
-
-            class Meta:
-                type_ = 'product'
-                strict = True
-
-    See: http://jsonapi.org/format/#document-meta
-    """
-
-    def __init__(self, **kwargs):
-        warnings.warn(
-            "The Meta field is deprecated. Use DocumentMeta field instead.",
-            DeprecationWarning,
-        )
-        super(DocumentMeta, self).__init__(**kwargs)
+            raise self.make_error("invalid")
