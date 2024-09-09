@@ -106,14 +106,10 @@ class Relationship(BaseRelationship):
         self.type_ = type_
         self.__id_field = id_field
         self.__schema = schema
-<<<<<<< HEAD
 
         self.__use_serialization_cache = True
 
-        super(Relationship, self).__init__(**kwargs)
-=======
         super().__init__(**kwargs)
->>>>>>> upstream/dev
 
     @property
     def id_field(self):
@@ -284,7 +280,6 @@ class Relationship(BaseRelationship):
         return ret
 
     def _serialize_included(self, value):
-<<<<<<< HEAD
         result = None
         value_id = self._get_id(value)
         if self.__use_serialization_cache and value_id is not None:
@@ -300,16 +295,11 @@ class Relationship(BaseRelationship):
         else:
             result = self.schema.dump(value)
 
-        if _MARSHMALLOW_VERSION_INFO[0] < 3:
-            data = result.data
-        else:
-            data = result
+        data = result
 
         item = data["data"]
-=======
         result = self.schema.dump(value)
         item = result["data"]
->>>>>>> upstream/dev
         self.root.included_data[(item["type"], item["id"])] = item
         for key, value in self.schema.included_data.items():
             self.root.included_data[key] = value
@@ -352,11 +342,7 @@ class DocumentMeta(Field):
 
     def _serialize(self, value, *args, **kwargs):
         if isinstance(value, collections.abc.Mapping):
-<<<<<<< HEAD
-            return super(DocumentMeta, self)._serialize(value, *args, **kwargs)
-=======
             return super()._serialize(value, *args, **kwargs)
->>>>>>> upstream/dev
         else:
             raise self.make_error("invalid")
 
@@ -392,10 +378,6 @@ class ResourceMeta(Field):
 
     def _serialize(self, value, *args, **kwargs):
         if isinstance(value, collections.abc.Mapping):
-<<<<<<< HEAD
-            return super(ResourceMeta, self)._serialize(value, *args, **kwargs)
-=======
             return super()._serialize(value, *args, **kwargs)
->>>>>>> upstream/dev
         else:
             raise self.make_error("invalid")
