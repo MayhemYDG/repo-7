@@ -253,7 +253,7 @@ jobs:
         distribution: adopt
         java-version: 17
     - continue-on-error: true
-      uses: burrunan/gradle-cache-action@v1.10
+      uses: burrunan/gradle-cache-action@v1.22
       with:
         arguments: build --stacktrace -Prelease.version=${{ github.event.inputs.version
           }}

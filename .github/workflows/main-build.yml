@@ -263,7 +263,7 @@ jobs:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
         SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
-      uses: burrunan/gradle-cache-action@v1.10
+      uses: burrunan/gradle-cache-action@v1.22
       with:
         arguments: snapshot --stacktrace
         job-id: jdk17

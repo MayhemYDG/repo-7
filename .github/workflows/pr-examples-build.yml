@@ -22,7 +22,7 @@ jobs:
         with:
           distribution: adopt
           java-version: 17
-      - uses: burrunan/gradle-cache-action@v1.10
+      - uses: burrunan/gradle-cache-action@v1.22
         with:
           remote-build-cache-proxy-enabled: false
           arguments: clean check shadowJar

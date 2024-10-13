@@ -270,7 +270,7 @@ jobs:
         \    echo $word | sed 's/ *$//g' | sed 's/^ *//g' | git cherry-pick --stdin\n\
         done\n"
     - continue-on-error: true
-      uses: burrunan/gradle-cache-action@v1.10
+      uses: burrunan/gradle-cache-action@v1.22
       with:
         arguments: build --stacktrace -Prelease.version=${{ github.event.inputs.version
           }}
@@ -285,7 +285,7 @@ jobs:
         SONATYPE_KEY: ${{ secrets.SONATYPE_KEY }}
         SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
       name: Publish artifacts
-      uses: burrunan/gradle-cache-action@v1.10
+      uses: burrunan/gradle-cache-action@v1.22
       with:
         arguments: final closeAndReleaseSonatypeStagingRepository --stacktrace -Prelease.version=${{
           github.event.inputs.version }}
