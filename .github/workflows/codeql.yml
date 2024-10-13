@@ -255,15 +255,15 @@ jobs:
         go-version-file: go.mod
     - continue-on-error: true
       name: Initialize CodeQL
-      uses: github/codeql-action/init@012739e5082ff0c22ca6d6ab32e07c36df03c4a4
+      uses: github/codeql-action/init@c36620d31ac7c881962c3d9dd939c40ec9434f2b
       with:
         languages: ${{ matrix.language }}
     - continue-on-error: true
       name: Autobuild
-      uses: github/codeql-action/autobuild@012739e5082ff0c22ca6d6ab32e07c36df03c4a4
+      uses: github/codeql-action/autobuild@c36620d31ac7c881962c3d9dd939c40ec9434f2b
     - continue-on-error: true
       name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@012739e5082ff0c22ca6d6ab32e07c36df03c4a4
+      uses: github/codeql-action/analyze@c36620d31ac7c881962c3d9dd939c40ec9434f2b
       with:
         category: /language:${{matrix.language}}
     - name: after
