@@ -749,7 +749,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5
     - continue-on-error: true
-      uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c
+      uses: actions/setup-python@f677139bbe7f9c59b41e40162b753c062f5d49a3
       with:
         python-version: '3.9'
     - continue-on-error: true
