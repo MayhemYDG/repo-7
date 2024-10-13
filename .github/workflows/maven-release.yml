@@ -249,7 +249,7 @@ jobs:
       uses: actions/checkout@v4
     - continue-on-error: true
       name: set up jdk 11
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         distribution: adopt
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
