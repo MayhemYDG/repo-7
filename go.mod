@@ -3,7 +3,8 @@ module github.com/coinbase/rosetta-geth-sdk
 go 1.20
 
 require (
-	github.com/coinbase/rosetta-sdk-go v0.8.2
+	github.com/coinbase/rosetta-sdk-go v0.8.5
+	github.com/coinbase/rosetta-sdk-go/types v1.0.0
 	github.com/ethereum/go-ethereum v1.13.8
 	github.com/neilotoole/errgroup v0.1.6
 	github.com/stretchr/testify v1.8.4
@@ -58,7 +59,7 @@ require (
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 // indirect
-	github.com/mitchellh/mapstructure v1.4.3 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mmcloughlin/addchain v0.4.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
