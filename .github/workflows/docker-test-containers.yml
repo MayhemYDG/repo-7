@@ -246,7 +246,7 @@ jobs:
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
       name: Docker login
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: ghcr.io
