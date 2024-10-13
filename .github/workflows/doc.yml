@@ -268,7 +268,7 @@ jobs:
         doctest html
     - continue-on-error: true
       name: Upload
-      uses: actions/upload-artifact@v2.2.4
+      uses: actions/upload-artifact@v4.4.3
       with:
         name: doc-html
         path: Doc/build/html
