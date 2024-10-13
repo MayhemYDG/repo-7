@@ -250,7 +250,7 @@ jobs:
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
       name: Prune Stale
-      uses: actions/stale@87c2b794b9b47a9bec68ae03c01aeb572ffebdb1
+      uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e
       with:
         ascending: true
         close-issue-message: 'This issue has been automatically closed because it
