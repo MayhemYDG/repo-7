@@ -251,7 +251,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - continue-on-error: true
       name: Register gcc problem matcher
       run: echo "::add-matcher::.github/problem-matchers/gcc.json"
@@ -556,7 +556,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - continue-on-error: true
       name: Register gcc problem matcher
       run: echo "::add-matcher::.github/problem-matchers/gcc.json"
@@ -862,7 +862,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - continue-on-error: true
       name: Register gcc problem matcher
       run: echo "::add-matcher::.github/problem-matchers/gcc.json"
@@ -1167,7 +1167,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - continue-on-error: true
       uses: actions/setup-python@v2
     - continue-on-error: true
@@ -1454,7 +1454,7 @@ jobs:
 
         sudo sh -c ''echo 1 > /proc/sys/net/ipv4/ip_forward'''
     - continue-on-error: true
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - continue-on-error: true
       id: check
       name: Check for source changes
