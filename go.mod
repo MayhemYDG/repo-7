@@ -3,7 +3,7 @@ module github.com/pyrra-dev/pyrra
 go 1.20
 
 require (
-	github.com/alecthomas/kong v0.9.0
+	github.com/alecthomas/kong v1.2.1
 	github.com/bufbuild/connect-go v1.10.0
 	github.com/dgraph-io/ristretto v0.1.1
 	github.com/fsnotify/fsnotify v1.7.0
