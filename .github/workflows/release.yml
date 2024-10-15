@@ -251,7 +251,7 @@ jobs:
     - continue-on-error: true
       id: docker_meta
       name: Docker meta
-      uses: docker/metadata-action@v3.6.1
+      uses: docker/metadata-action@v5.5.1
       with:
         flavor: 'latest=auto
 
