@@ -33,7 +33,7 @@ plugins {
    // checkstyle
     id("com.github.gmazzo.buildconfig") version "5.4.0"
     id("com.diffplug.spotless") version "6.25.0"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "com.clickhouse.kafka"
