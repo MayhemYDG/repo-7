@@ -247,7 +247,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v4
     - continue-on-error: true
-      uses: gradle/actions/wrapper-validation@v4.0.1
+      uses: gradle/actions/wrapper-validation@v4.1.0
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/Contrast-Security-OSS/otel-microservices-demo.$(date
         +%s)
