@@ -255,7 +255,7 @@ jobs:
         ref: ${{ github.event.pull_request.head.sha }}
     - continue-on-error: true
       name: Create backport PRs
-      uses: zeebe-io/backport-action@v2.0.0
+      uses: zeebe-io/backport-action@v3.1.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         github_workspace: ${{ github.workspace }}
