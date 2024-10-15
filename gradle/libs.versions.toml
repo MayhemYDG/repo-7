@@ -67,7 +67,7 @@ dokkaGradlePlugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", versio
 errorproneAnnotations = { module = "com.google.errorprone:error_prone_annotations", version = "2.32.0" }
 findbugsJsr305 = { module = "com.google.code.findbugs:jsr305", version = "3.0.2" }
 flywayGradlePlugin = { module = "org.flywaydb:flyway-gradle-plugin", version.ref = "flyway" }
-gax = { module = "com.google.api:gax", version = "2.54.1" }
+gax = { module = "com.google.api:gax", version = "2.55.0" }
 gcpCloudCore = { module = "com.google.cloud:google-cloud-core", version = "2.44.1" }
 gcpDatastore = { module = "com.google.cloud:google-cloud-datastore", version = "2.21.3" }
 gcpKms = { module = "com.google.apis:google-api-services-cloudkms", version = "v1-rev20240918-2.0.0" }
