@@ -265,7 +265,7 @@ jobs:
       env:
         cache-name: go-mod-cache
       name: Module cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/go.sum') }}
         path: ~/go/pkg/mod
@@ -273,7 +273,7 @@ jobs:
       env:
         cache-name: go-tools-cache
       name: Tools cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('./internal/tools/**')
           }}
@@ -552,7 +552,7 @@ jobs:
       env:
         cache-name: go-mod-cache
       name: Module cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/go.sum') }}
         path: ~/go/pkg/mod
@@ -847,7 +847,7 @@ jobs:
       env:
         cache-name: go-mod-cache
       name: Module cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/go.sum') }}
         path: ~/go/pkg/mod
