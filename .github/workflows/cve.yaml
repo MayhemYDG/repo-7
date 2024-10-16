@@ -300,7 +300,7 @@ jobs:
           '
     - continue-on-error: true
       name: Run CVE checks
-      uses: aquasecurity/trivy-action@0.8.0
+      uses: aquasecurity/trivy-action@0.28.0
       with:
         exit-code: '1'
         format: table
