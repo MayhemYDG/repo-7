@@ -32,7 +32,7 @@ setup(
       'pyzmq==25.0.2',
       'pem==21.2.0',
       'M2Crypto==0.40.1',
-      'urllib3==1.26.0'
+      'urllib3==2.2.3'
     ],
     packages=find_packages(exclude=['tests']),
     python_requires='>=3.7,<4',
