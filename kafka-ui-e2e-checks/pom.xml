@@ -19,7 +19,7 @@
         <testcontainers.version>1.17.5</testcontainers.version>
         <selenide.version>6.9.0</selenide.version>
         <assertj.version>3.23.1</assertj.version>
-        <google.auto-service.version>1.0.1</google.auto-service.version>
+        <google.auto-service.version>1.1.1</google.auto-service.version>
         <hamcrest.version>2.2</hamcrest.version>
         <slf4j.version>1.7.36</slf4j.version>
         <testcontainers.junit-jupiter.version>1.17.2</testcontainers.junit-jupiter.version>
