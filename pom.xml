@@ -14,7 +14,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spring-boot.version>2.7.5</spring-boot.version>
+        <spring-boot.version>3.3.4</spring-boot.version>
         <jackson-databind-nullable.version>0.2.4</jackson-databind-nullable.version>
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.24</org.projectlombok.version>
