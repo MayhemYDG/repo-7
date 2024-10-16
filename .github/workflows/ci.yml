@@ -256,7 +256,7 @@ jobs:
         go-version: '1.19'
     - continue-on-error: true
       name: Run golangci-lint
-      uses: golangci/golangci-lint-action@0ad9a0988b3973e851ab0a07adf248ec2e100376
+      uses: golangci/golangci-lint-action@971e284b6050e8a5849b72094c50ab08da042db8
       with:
         version: latest
     - name: after
