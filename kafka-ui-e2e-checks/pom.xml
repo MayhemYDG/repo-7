@@ -28,7 +28,7 @@
         <junit.platform-launcher.version>1.9.2</junit.platform-launcher.version>
         <allure.maven-plugin.version>2.6</allure.maven-plugin.version>
         <ashot.version>1.5.4</ashot.version>
-        <allure.screendiff-plugin.version>2.20.1</allure.screendiff-plugin.version>
+        <allure.screendiff-plugin.version>2.30.0</allure.screendiff-plugin.version>
         <maven.surefire-plugin.version>2.22.2</maven.surefire-plugin.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <kafka.version>3.0.0</kafka.version>
