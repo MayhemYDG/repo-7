@@ -14,7 +14,7 @@
         <kafka-ui-contract>${project.version}</kafka-ui-contract>
         <junit.version>5.9.1</junit.version>
         <aspectj.version>1.9.19</aspectj.version>
-        <allure.version>2.20.1</allure.version>
+        <allure.version>2.29.0</allure.version>
         <json-smart.version>2.4.8</json-smart.version>
         <testcontainers.version>1.17.5</testcontainers.version>
         <selenide.version>6.9.0</selenide.version>
