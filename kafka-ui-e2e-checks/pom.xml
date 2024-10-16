@@ -21,7 +21,7 @@
         <assertj.version>3.23.1</assertj.version>
         <google.auto-service.version>1.0.1</google.auto-service.version>
         <hamcrest.version>2.2</hamcrest.version>
-        <slf4j.version>1.7.36</slf4j.version>
+        <slf4j.version>2.0.16</slf4j.version>
         <testcontainers.junit-jupiter.version>1.17.2</testcontainers.junit-jupiter.version>
         <allure.java-commons.version>2.20.1</allure.java-commons.version>
         <dotenv.version>2.2.4</dotenv.version>
