@@ -29,7 +29,7 @@ setup(
     author_email='support@skalelabs.com',
     install_requires=[
       'web3==6.20.2',
-      'pyzmq==25.0.2',
+      'pyzmq==26.2.0',
       'pem==21.2.0',
       'M2Crypto==0.40.1',
       'urllib3==1.26.0'
