@@ -41,7 +41,7 @@
         <mockito.version>4.8.1</mockito.version>
         <byte-buddy.version>1.12.22</byte-buddy.version>
         <assertj.version>3.23.1</assertj.version>
-        <antlr4-maven-plugin.version>4.11.1</antlr4-maven-plugin.version>
+        <antlr4-maven-plugin.version>4.13.2</antlr4-maven-plugin.version>
         <groovy.version>3.0.14</groovy.version>
         <datasketches-java.version>3.3.0</datasketches-java.version>
 
