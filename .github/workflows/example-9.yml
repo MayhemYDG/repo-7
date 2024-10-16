@@ -262,13 +262,13 @@ jobs:
         fetch-depth: 0
     - continue-on-error: true
       name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v1.1.1
+      uses: gittools/actions/gitversion/setup@v3.0.0
       with:
         versionSpec: 5.x
     - continue-on-error: true
       id: version_step
       name: Determine Version
-      uses: gittools/actions/gitversion/execute@v1.1.1
+      uses: gittools/actions/gitversion/execute@v3.0.0
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/nestle/gittools-extension.$(date
         +%s)
