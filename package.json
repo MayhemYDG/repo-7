@@ -30,7 +30,7 @@
     "node-gettext": "3.0.0",
     "prettier": "2.7.1",
     "rehype-format": "4.0.1",
-    "rehype-parse": "8.0.4",
+    "rehype-parse": "9.0.1",
     "rehype-stringify": "9.0.3",
     "remark-gfm": "3.0.1",
     "remark-prettier": "2.0.0",
