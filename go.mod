@@ -3,9 +3,10 @@ module github.com/monzo/dependency-track-client-go
 go 1.19
 
 require (
+	github.com/DependencyTrack/client-go v0.13.0
 	github.com/google/go-cmp v0.5.9
 	github.com/google/uuid v1.3.0
-	github.com/jarcoal/httpmock v1.3.0
+	github.com/jarcoal/httpmock v1.3.1
 	github.com/stretchr/testify v1.8.2
 )
 
