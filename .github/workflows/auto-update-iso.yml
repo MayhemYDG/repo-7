@@ -259,7 +259,7 @@ jobs:
       run: ./scripts/update-ubuntu-release
     - continue-on-error: true
       name: Open a pull request
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         base: main
         body: 'The latest desktop ISO referenced in ${{ steps.iso.outputs.mirror_url
