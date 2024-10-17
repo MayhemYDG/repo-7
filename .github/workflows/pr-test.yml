@@ -256,7 +256,7 @@ jobs:
         repository: mdn/content
     - continue-on-error: true
       name: Setup Node.js environment
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
         cache-dependency-path: mdn/content/yarn.lock
