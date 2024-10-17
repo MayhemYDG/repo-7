@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://matrixrequirements.github.io/matrix-sdk-docs/</loc>
+         <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+         <loc>https://matrixrequirements.github.io/matrix-sdk-docs/part2/</loc>
+         <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+         <loc>https://matrixrequirements.github.io/matrix-sdk-docs/part3/</loc>
+         <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+         <loc>https://matrixrequirements.github.io/matrix-sdk-docs/ref/</loc>
+         <lastmod>2024-10-17</lastmod>
+    </url>
+    <url>
+         <loc>https://matrixrequirements.github.io/matrix-sdk-docs/zee-faq/</loc>
+         <lastmod>2024-10-17</lastmod>
+    </url>
+</urlset>

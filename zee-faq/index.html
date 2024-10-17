@@ -1,0 +1,994 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://matrixrequirements.github.io/matrix-sdk-docs/zee-faq/">
+      
+      
+        <link rel="prev" href="../ref/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>FAQ - Matrix Requirements SDK User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-header__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Matrix Requirements SDK User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Matrix Requirements SDK
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../part2/" class="md-tabs__link">
+        
+  
+    
+  
+  Advanced Searching
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../part3/" class="md-tabs__link">
+        
+  
+    
+  
+  Links, Labels and Item Creation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ref/" class="md-tabs__link">
+        
+  
+    
+  
+  Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-nav__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Matrix Requirements SDK User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matrix Requirements SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Searching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links, Labels and Item Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-about-saving-server-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      What about saving server settings?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-create-test-cases-xtc-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I create test cases (XTC Items)?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-deal-with-doc-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I deal with DOC objects?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-run-a-server-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I run a server hook?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-i-have-to-load-the-axios-library-separately" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why do I have to load the Axios library separately?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-i-create-notifications-with-the-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I create Notifications with the SDK?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="faq">FAQ</h1>
+<p>The SDK is brand new so there are plenty of things we haven't thought about yet.
+This FAQ contains answers to questions you're likely to have at some point.</p>
+<h2 id="what-about-saving-server-settings">What about saving server settings?</h2>
+<p>This is easy with <a href="https://matrixrequirements.github.io/matrix-sdk-docs/reference/classes/serverSdk.StandaloneMatrixSDK.html#getServerSettings"><code>Server.getServerSettings()</code></a>,
+as demonstrated in the program below:</p>
+<div class="highlight"><span class="filename">server-setting.js</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">getServerSettings</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">favorites</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">settings</span><span class="p">.</span><span class="nx">settingList</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">setting</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setting</span><span class="p">.</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;favorites&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">favorite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">favorites</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Found existing favorites&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">favorite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">favorites</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">value</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nx">favorite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="nx">car</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Mustang&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="nx">food</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tacos&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="nx">music</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Post-rock&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">};</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">putServerSetting</span><span class="p">(</span><span class="s2">&quot;favorites&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">favorite</span><span class="p">));</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Saved favorites&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">favorite</span><span class="p">);</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Note that we get a <code>favorites</code> setting, and create a simple object with our favorite things
+in it if the setting doesn't exist yet. Here are two runs of the program:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>server-setting.js
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Saved<span class="w"> </span>favorites
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">{</span><span class="w"> </span>car:<span class="w"> </span><span class="s1">&#39;Mustang&#39;</span>,<span class="w"> </span>food:<span class="w"> </span><span class="s1">&#39;Tacos&#39;</span>,<span class="w"> </span>music:<span class="w"> </span><span class="s1">&#39;Post-rock&#39;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>server-setting.js
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Found<span class="w"> </span>existing<span class="w"> </span>favorites
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">{</span><span class="w"> </span>car:<span class="w"> </span><span class="s1">&#39;Mustang&#39;</span>,<span class="w"> </span>food:<span class="w"> </span><span class="s1">&#39;Tacos&#39;</span>,<span class="w"> </span>music:<span class="w"> </span><span class="s1">&#39;Post-rock&#39;</span><span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+<h2 id="how-do-i-create-test-cases-xtc-items">How do I create test cases (XTC Items)?</h2>
+<p>XTC Items are created by a server-side process from a collection of source items (usually 
+TC (Test Cases), but it depends on your configuration). You can do this from the SDK by calling
+<a href="../reference/classes/serverSdk.Project.html#execute"><code>Project.execute()</code></a> and passing
+an <a href="../reference/interfaces/serverSdk.ExecuteParam.html"><code>ExecuteParam</code></a> structure
+giving the source objects and output folder for the newly-created XTC items.</p>
+<p>Normally, the <code>ExecuteParam</code> structure is populated with defaults from the Project
+Test Configuration, which you can set up in the Administration panel here:</p>
+<p><img alt="Screenshot" src="../img/test-config-panel.png" /></p>
+<p>Because this is usually what you want to use as a source for creating XTCs, we have a
+convenience method <a href="../reference/classes/serverSdk.Project.html#createExecuteParamWithDefaults"><code>Project.createExecuteParamWithDefaults()</code></a> to fill in the mapping from source item fields to
+target (XTC) fields. The code below creates a folder "Test Results" if it doesn't exist,
+then kicks off creation of XTCs with <code>Project.execute()</code>:</p>
+<div class="highlight"><span class="filename">execute-call.js</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getOrCreateOutputFolder</span><span class="p">(</span><span class="nx">project</span><span class="p">,</span><span class="w"> </span><span class="nx">parent</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">getProjectTree</span><span class="p">();</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">xtcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tree</span><span class="p">.</span><span class="nx">findFolder</span><span class="p">(</span><span class="nx">parent</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">outputFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xtcs</span><span class="p">.</span><span class="nx">findDirectFolderByTitle</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">outputFolder</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">folderItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">createFolder</span><span class="p">(</span><span class="s2">&quot;XTC&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nx">folderItem</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nx">folderItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">putItem</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span><span class="w"> </span><span class="nx">folderItem</span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">folderItem</span><span class="p">.</span><span class="nx">getId</span><span class="p">();</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">outputFolder</span><span class="p">.</span><span class="nx">getId</span><span class="p">();</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Creating XTCs&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getProjectTree</span><span class="p">();</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tcFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tree</span><span class="p">.</span><span class="nx">findFolder</span><span class="p">(</span><span class="s2">&quot;F-TC-1&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="c1">// We expect the root TC folder to have some items.</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">tcFolder</span><span class="p">.</span><span class="nx">getItemChildren</span><span class="p">().</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">createExecuteParamWithDefaults</span><span class="p">([</span><span class="s1">&#39;F-TC-1&#39;</span><span class="p">],</span><span class="w"> </span><span class="s1">&#39;XTC&#39;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="s2">&quot;Create XTCs &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="nx">param</span><span class="p">.</span><span class="nx">parentFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">getOrCreateOutputFolder</span><span class="p">(</span><span class="nx">wheely</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;F-XTC-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Test Results&quot;</span><span class="p">);</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">param</span><span class="p">);</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Created folder </span><span class="si">${</span><span class="nx">result</span><span class="p">.</span><span class="nx">folder</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">}</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Here is the console output after a run, showing the structure of the <code>ExecuteParam</code> object
+created for the call to <code>execute()</code>, along with the Id of the folder with the new XTCs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>execute-call
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>input:<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s1">&#39;F-TC-1&#39;</span><span class="w"> </span><span class="o">]</span>,
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>output:<span class="w"> </span><span class="s1">&#39;XTC&#39;</span>,
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>reason:<span class="w"> </span><span class="s1">&#39;Create XTCs 1599.5004580020905&#39;</span>,
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>itemFieldMapping:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37379</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37383</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37380</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37388</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37381</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37389</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37382</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37390</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37365</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37383</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37366</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37388</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37367</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37389</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>fromId:<span class="w"> </span><span class="m">37368</span>,<span class="w"> </span>toId:<span class="w"> </span><span class="m">37390</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="o">]</span>,
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span>parentFolder:<span class="w"> </span><span class="s1">&#39;F-XTC-59&#39;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="o">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>Created<span class="w"> </span>folder<span class="w"> </span>F-XTC-62
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$
+</code></pre></div>
+<p>And here is the state of the project after running two times:</p>
+<p><img alt="Screenshot" src="../img/xtc-results.png" />;</p>
+<p>Note the Folder named "Test Results" which we've made serve as the parent folder for
+generating a set of XTCs.</p>
+<h2 id="how-do-i-deal-with-doc-objects">How do I deal with DOC objects?</h2>
+<p>A DOC is like a unique, stand-alone <a href="../reference/classes/serverSdk.Item.html"><code>Item</code></a>
+<a href="../reference/classes/serverSdk.Category.html"><code>Category</code></a>. The DOC describes the fields that it contains,
+configures the fields, and includes the content for the fields. This makes it a more complex
+object to work with than an ordinary Item, where configuration is done at the Category level.</p>
+<p>With that in mind, we've provided the <a href="../reference/classes/serverSdk.DocItem.html"><code>DocItem</code></a> class, which
+has all the features of the Item class with some extra helper methods. First, let's bring down
+an existing DOC and explore it with the DocItem class. In the <code>WHEELY_OBSERVABLE</code> Project
+we've got <code>DOC-8</code> which is a Design Review. It has a signature field, a summary rich text
+field and a queried list of reviewed items that show up when the document is rendered.</p>
+<p>Rather than calling <code>getFields()</code>, you should call <code>getInnerDHFFields()</code> on a <code>DocItem</code>.
+This is because at its core, the DOC is the same as any other Item, and has a set of Fields,
+however, the names of the fields are of the form "dhf01", "dhf02", and so on. Looking at the UI,
+you see much more useful names like "Signatures" and "Review Summary." Method <code>getInnerDHFFields()</code>
+allows you to use those human-readable names and see the configuration for the fields easily too.</p>
+<p>Let's list the field names in the DOC:</p>
+<div class="highlight"><span class="filename">get-doc-8.js</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItemAsDoc</span><span class="p">(</span><span class="s2">&quot;DOC-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">getInnerDHFFields</span><span class="p">();</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Fields in DOC-8:`</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">handlers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`&quot;</span><span class="si">${</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">()</span><span class="si">}</span><span class="sb">&quot; [</span><span class="si">${</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getFieldType</span><span class="p">()</span><span class="si">}</span><span class="sb">]`</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Which gives the following output, showing the user-readable field names and the field types:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Fields<span class="w"> </span><span class="k">in</span><span class="w"> </span>DOC-8:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s2">&quot;Signatures&quot;</span><span class="w"> </span><span class="o">[</span>signaturebox<span class="o">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s2">&quot;Review Summary&quot;</span><span class="w"> </span><span class="o">[</span>richtext<span class="o">]</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s2">&quot;Reviewed Items&quot;</span><span class="w"> </span><span class="o">[</span>items<span class="o">]</span>
+</code></pre></div>
+<p><code>IDocFieldHandler</code> offers the following methods in addition to what <code>IFieldHandler</code> provides:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">IDocFieldHandler</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">IFieldHandler</span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nx">dhfFieldConfig</span><span class="o">:</span><span class="w"> </span><span class="kt">IAnyMap</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">setDHFConfig</span><span class="p">(</span><span class="nx">config</span><span class="o">:</span><span class="kt">IAnyMap</span><span class="p">)</span><span class="o">:</span><span class="ow">void</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">getDefaultConfig</span><span class="p">()</span><span class="o">:</span><span class="nx">any</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">getXmlValue</span><span class="p">()</span><span class="o">:</span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nx">getFieldName</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nx">setFieldName</span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nx">addSignatures</span><span class="w"> </span><span class="p">(</span><span class="nx">signatures</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[],</span><span class="w"> </span><span class="nx">includeAll?</span><span class="o">:</span><span class="kt">boolean</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>We can print the field configuration as a JSON object, and the field data (string or JSON object).</p>
+<div class="highlight"><span class="filename">get-doc-8-moredetail.js</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">print</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItemAsDoc</span><span class="p">(</span><span class="s2">&quot;DOC-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">getInnerDHFFields</span><span class="p">();</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Fields in DOC-8:`</span><span class="p">);</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">handlers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`&quot;</span><span class="si">${</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">()</span><span class="si">}</span><span class="sb">&quot; [</span><span class="si">${</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getFieldType</span><span class="p">()</span><span class="si">}</span><span class="sb">]`</span><span class="p">);</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">group</span><span class="p">()</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">dhfFieldConfig</span><span class="p">);</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="c1">// Print the value of the field:</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="nx">print</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">groupEnd</span><span class="p">();</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Which gives the following output, showing the user-readable field names and the field types:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Fields<span class="w"> </span><span class="k">in</span><span class="w"> </span>DOC-8:
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s2">&quot;Signatures&quot;</span><span class="w"> </span><span class="o">[</span>signaturebox<span class="o">]</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="o">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>columns:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="o">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span>name:<span class="w"> </span><span class="s1">&#39;Signature Meaning&#39;</span>,
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span>field:<span class="w"> </span><span class="s1">&#39;col0&#39;</span>,
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span>columnType:<span class="w"> </span><span class="s1">&#39;type6&#39;</span>,
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span>pos:<span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="o">}</span>,
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="o">{</span><span class="w"> </span>name:<span class="w"> </span><span class="s1">&#39;Name&#39;</span>,<span class="w"> </span>field:<span class="w"> </span><span class="s1">&#39;col1&#39;</span>,<span class="w"> </span>columnType:<span class="w"> </span><span class="s1">&#39;type4&#39;</span>,<span class="w"> </span>pos:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="o">{</span><span class="w"> </span>name:<span class="w"> </span><span class="s1">&#39;Title&#39;</span>,<span class="w"> </span>field:<span class="w"> </span><span class="s1">&#39;col2&#39;</span>,<span class="w"> </span>columnType:<span class="w"> </span><span class="s1">&#39;type0&#39;</span>,<span class="w"> </span>pos:<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="o">{</span><span class="w"> </span>name:<span class="w"> </span><span class="s1">&#39;Date&#39;</span>,<span class="w"> </span>field:<span class="w"> </span><span class="s1">&#39;col3&#39;</span>,<span class="w"> </span>columnType:<span class="w"> </span><span class="s1">&#39;type5&#39;</span>,<span class="w"> </span>pos:<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">      </span><span class="o">{</span><span class="w"> </span>name:<span class="w"> </span><span class="s1">&#39;Signature&#39;</span>,<span class="w"> </span>field:<span class="w"> </span><span class="s1">&#39;col4&#39;</span>,<span class="w"> </span>columnType:<span class="w"> </span><span class="s1">&#39;type3&#39;</span>,<span class="w"> </span>pos:<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="o">]</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span><span class="o">[</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>col0:<span class="w"> </span><span class="s1">&#39;Reviewer&#39;</span>,<span class="w"> </span>col1:<span class="w"> </span><span class="s1">&#39;wolfgang&#39;</span>,<span class="w"> </span>col2:<span class="w"> </span><span class="s1">&#39;qa engineer&#39;</span><span class="w"> </span><span class="o">}</span>,
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="o">{</span><span class="w"> </span>col0:<span class="w"> </span><span class="s1">&#39;Reviewer&#39;</span>,<span class="w"> </span>col1:<span class="w"> </span><span class="s1">&#39;yves&#39;</span>,<span class="w"> </span>col2:<span class="w"> </span><span class="s1">&#39;product manager&#39;</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="o">]</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="s2">&quot;Review Summary&quot;</span><span class="w"> </span><span class="o">[</span>richtext<span class="o">]</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">  </span><span class="o">{</span><span class="w"> </span>page_break:<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">}</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span>The<span class="w"> </span>items<span class="w"> </span>below<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>reviewed<span class="w"> </span>whether<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>quantifiable<span class="w"> </span><span class="k">for</span><span class="w"> </span>testing<span class="w"> </span>purposes.
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="s2">&quot;Reviewed Items&quot;</span><span class="w"> </span><span class="o">[</span>items<span class="o">]</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">  </span><span class="o">{</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span>breadcrumb:<span class="w"> </span>true,
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span>extracolumn:<span class="w"> </span><span class="s1">&#39;&#39;</span>,
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span>showlinks:<span class="w"> </span>true,
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span>page_break:<span class="w"> </span>false,
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span>folderDetails:<span class="w"> </span><span class="s1">&#39;&#39;</span>,
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span>showUpOnly:<span class="w"> </span>false,
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span>showDownOnly:<span class="w"> </span>false,
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span>showDeeplinks:<span class="w"> </span>false,
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span>showExternal:<span class="w"> </span><span class="m">0</span>,
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span>dateoptions:<span class="w"> </span><span class="s1">&#39;&#39;</span>,
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span>refdocs:<span class="w"> </span>false,
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span>hideLinkErrors:<span class="w"> </span>false,
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">    </span>hideLabels:<span class="w"> </span>false,
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">    </span>showAllParentFolders:<span class="w"> </span>false,
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">    </span>hideEmptyFolders:<span class="w"> </span>false,
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="w">    </span>includeInToc:<span class="w"> </span>false,
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="w">    </span>breakAfterItems:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="w">  </span><span class="o">[</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>to:<span class="w"> </span><span class="s1">&#39;F-REQ-1&#39;</span>,<span class="w"> </span>title:<span class="w"> </span><span class="s1">&#39;Requirements&#39;</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">]</span>
+</code></pre></div>
+<p>To render and download a DOC as a PDF, you can call <code>toPDF()</code> and <code>downloadJobResult()</code>:</p>
+<div class="highlight"><span class="filename">get-doc-8-pdf.js</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItemAsDoc</span><span class="p">(</span><span class="s2">&quot;DOC-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">jobId</span><span class="p">;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">jobData</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">urlToPDF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">toPDF</span><span class="p">((</span><span class="nx">jid</span><span class="p">,</span><span class="w"> </span><span class="nx">details</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Progress: </span><span class="si">${</span><span class="nx">details</span><span class="p">.</span><span class="nx">progress</span><span class="si">}</span><span class="sb">%`</span><span class="p">);</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">details</span><span class="p">.</span><span class="nx">progress</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">            </span><span class="c1">// When the job is finished, save information on the output.</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">            </span><span class="nx">jobId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jid</span><span class="p">;</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="nx">jobData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">details</span><span class="p">.</span><span class="nx">jobFile</span><span class="p">;</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">jobData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="c1">// There are several output files in DOC rendering, focus on the one which is the PDF.</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">fileInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jobData</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">restUrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">urlToPDF</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Downloading Job </span><span class="si">${</span><span class="nx">jobId</span><span class="si">}</span><span class="sb"> File </span><span class="si">${</span><span class="nx">fileInfo</span><span class="p">.</span><span class="nx">jobFileId</span><span class="si">}</span><span class="sb"> as download.pdf...`</span><span class="p">);</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">downloadJobResult</span><span class="p">(</span><span class="nx">jobId</span><span class="p">,</span><span class="w"> </span><span class="nx">fileInfo</span><span class="p">.</span><span class="nx">jobFileId</span><span class="p">);</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s2">&quot;download.pdf&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">Buffer</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="p">}</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>We can render a DOC as PDF, Word or HTML. The program saves the PDF render to disk where it can
+be opened with any PDF file reader:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>darkstar:~/matrix-sdk-docs/codes<span class="w"> </span>$<span class="w"> </span>node<span class="w"> </span>get-doc-8-pdf.js
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Progress:<span class="w"> </span><span class="m">10</span>%
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Progress:<span class="w"> </span><span class="m">40</span>%
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Progress:<span class="w"> </span><span class="m">40</span>%
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Progress:<span class="w"> </span><span class="m">40</span>%
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Progress:<span class="w"> </span><span class="m">90</span>%
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Progress:<span class="w"> </span><span class="m">91</span>%
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>Progress:<span class="w"> </span><span class="m">91</span>%
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>Progress:<span class="w"> </span><span class="m">100</span>%
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Downloading<span class="w"> </span>Job<span class="w"> </span><span class="m">4853</span><span class="w"> </span>File<span class="w"> </span><span class="m">7393</span><span class="w"> </span>as<span class="w"> </span>download.pdf...
+</code></pre></div>
+<p><img alt="Screenshot" src="../img/pdf-output.png" />;</p>
+<h2 id="how-do-i-run-a-server-hook">How do I run a server hook?</h2>
+<p>A hook is a server-side job with a unique name that accepts an Item Id and a
+payload string. Method <a href="../reference/classes/serverSdk.Project.html#runHook"><code>runHook()</code></a> on
+the <a href="../reference/classes/serverSdk.Project.html"><code>Project</code></a> class kicks off the
+hook. Some hooks return a jobId which can be polled for a result at job completion.
+<a href="../reference/classes/serverSdk.Project.html#waitOnJobCompletion"><code>Project.waitOnJobCompletion()</code></a>
+makes it easy to do that. Example code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">...</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">runHook</span><span class="p">(</span><span class="nx">reqs</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;publish_marketplace&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">jobId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">jobId</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">jobResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">waitOnJobCompletion</span><span class="p">(</span><span class="nx">jsonResult</span><span class="p">.</span><span class="nx">jobId</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">jid</span><span class="p">,</span><span class="w"> </span><span class="nx">progress</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">jid</span><span class="si">}</span><span class="sb">: progress </span><span class="si">${</span><span class="nx">progress</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">});</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Final result: </span><span class="si">${</span><span class="nx">jobResult</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb"> generated files`</span><span class="p">);</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">jobResult</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">jobResult</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>And output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mstanton@darkstar:~/work/hook-test$<span class="w"> </span>node<span class="w"> </span>hook-example
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">4783</span>:<span class="w"> </span>progress<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="m">4783</span>:<span class="w"> </span>progress<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="m">4783</span>:<span class="w"> </span>progress<span class="w"> </span><span class="m">10</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="m">4783</span>:<span class="w"> </span>progress<span class="w"> </span><span class="m">100</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Final<span class="w"> </span>result:<span class="w"> </span><span class="m">1</span><span class="w"> </span>generated<span class="w"> </span>files
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="o">{</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span>restUrl:<span class="w"> </span><span class="s1">&#39;https://clouds5.matrixreq.com/rest/1/WHEELY_OBSERVABLE/job/4783/7250&#39;</span>,
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span>jobFileId:<span class="w"> </span><span class="m">7250</span>,
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span>visibleName:<span class="w"> </span><span class="s1">&#39;publishlog.txt&#39;</span>,
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span>internalPath:<span class="w"> </span><span class="s1">&#39;/generated/j4783_publishlog.txt&#39;</span>,
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span>mimeType:<span class="w"> </span><span class="s1">&#39;text/plain&#39;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="o">}</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>mstanton@darkstar:~/work/hook-test$
+</code></pre></div>
+<h2 id="why-do-i-have-to-load-the-axios-library-separately">Why do I have to load the Axios library separately?</h2>
+<p>Currently, we're shipping the Server SDK as a rollup of all our dependencies.
+For Node this is not ideal, and we plan to load dependencies from the Node
+environment in a future release. Axios is required for just one call,
+<a href="../reference/classes/serverSdk.Project.html#uploadLocalFile"><code>Project.uploadLocalFile()</code></a>
+so we prefered not to bundle it.</p>
+<h2 id="can-i-create-notifications-with-the-sdk">Can I create Notifications with the SDK?</h2>
+<p>Yes, as long as <a href="https://docs23.matrixreq.com/usv23/notifications-settings">the feature is enabled on the server</a>. The <code>Item</code> class includes two methods for manipulating "Todos," another name for notifications:</p>
+<ul>
+<li><a href="../reference/classes/serverSdk.Item.html#createTodo">createTodo(users, type, text, atDate)</a> - create a Todo for multiple users and return ids. The <code>type</code> field is a string from the <a href="../reference/enums/serverSdk.TodoTypes.html"><code>TodoTypes</code> enum</a></li>
+<li><a href="../reference/classes/serverSdk.Item.html#getTodos">getTodos(includeDone, includeAllUsers, includeFuture)</a> - return information on Todos active for this item</li>
+</ul>
+<p>Additionally, <a href="../reference/classes/serverSdk.Project.html#getTodos"><code>Project.getTodos()</code></a> returns information
+on all Todos active in the Project. Let's create two Todos and verify that they can be found from the
+`Project`` class:</p>
+<div class="highlight"><span class="filename">todos.js</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ucs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">todoId1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ucs</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">createTodo</span><span class="p">([</span><span class="s2">&quot;mike&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Here is a notification&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">());</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">todoId2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ucs</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">createTodo</span><span class="p">([</span><span class="s2">&quot;francois&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Here is a notification&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">());</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Created Todos </span><span class="si">${</span><span class="nx">todoId1</span><span class="si">}</span><span class="sb">, </span><span class="si">${</span><span class="nx">todoId2</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getTodos</span><span class="p">(</span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">todos</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">}</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>The returned structure includes all Todos in the project, as well as a summary report of the active
+Todos for the current user. My API Token is attached to my user account which is <code>mike</code>, so we see that
+Mike has 1 Todo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>todos
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Created<span class="w"> </span>Todos<span class="w"> </span><span class="m">382</span>,<span class="w"> </span><span class="m">383</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">{</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span>todos:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="o">{</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span>todoId:<span class="w"> </span><span class="m">383</span>,
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span>userId:<span class="w"> </span><span class="m">7</span>,
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span>login:<span class="w"> </span><span class="s1">&#39;francois&#39;</span>,
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span>projectShort:<span class="w"> </span><span class="s1">&#39;WHEELY_OBSERVABLE&#39;</span>,
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">      </span>itemRef:<span class="w"> </span><span class="s1">&#39;UC-2&#39;</span>,
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">      </span>auto:<span class="w"> </span>false,
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">      </span>originatorUserId:<span class="w"> </span><span class="m">23</span>,
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span>originatorLogin:<span class="w"> </span><span class="s1">&#39;mike&#39;</span>,
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">      </span>action:<span class="w"> </span><span class="o">[</span>Object<span class="o">]</span>,
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span>createdAt:<span class="w"> </span><span class="s1">&#39;2023-12-24T10:12:38.458Z&#39;</span>,
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">      </span>createdAtUserFormat:<span class="w"> </span><span class="s1">&#39;2023/12/24 10:12:38&#39;</span>,
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">      </span>future:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span><span class="o">}</span>,
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span><span class="o">{</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">      </span>todoId:<span class="w"> </span><span class="m">382</span>,
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">      </span>userId:<span class="w"> </span><span class="m">23</span>,
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">      </span>login:<span class="w"> </span><span class="s1">&#39;mike&#39;</span>,
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">      </span>projectShort:<span class="w"> </span><span class="s1">&#39;WHEELY_OBSERVABLE&#39;</span>,
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">      </span>itemRef:<span class="w"> </span><span class="s1">&#39;UC-1&#39;</span>,
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">      </span>auto:<span class="w"> </span>false,
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">      </span>originatorUserId:<span class="w"> </span><span class="m">23</span>,
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a><span class="w">      </span>originatorLogin:<span class="w"> </span><span class="s1">&#39;mike&#39;</span>,
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="w">      </span>action:<span class="w"> </span><span class="o">[</span>Object<span class="o">]</span>,
+<a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="w">      </span>createdAt:<span class="w"> </span><span class="s1">&#39;2023-12-24T10:12:38.352Z&#39;</span>,
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="w">      </span>createdAtUserFormat:<span class="w"> </span><span class="s1">&#39;2023/12/24 10:12:38&#39;</span>,
+<a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="w">      </span>future:<span class="w"> </span><span class="nb">false</span>
+<a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="w">  </span><span class="o">]</span>,
+<a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">  </span>todoCounts:<span class="w"> </span><span class="o">[</span>
+<a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="w">    </span><span class="o">{</span>
+<a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a><span class="w">      </span>userId:<span class="w"> </span><span class="m">23</span>,
+<a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">      </span>login:<span class="w"> </span><span class="s1">&#39;mike&#39;</span>,
+<a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="w">      </span>projectId:<span class="w"> </span><span class="m">360</span>,
+<a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="w">      </span>projectShort:<span class="w"> </span><span class="s1">&#39;WHEELY_OBSERVABLE&#39;</span>,
+<a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="w">      </span>nbTodos:<span class="w"> </span><span class="m">1</span>,
+<a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="w">      </span>firstTodos:<span class="w"> </span><span class="o">[</span>Array<span class="o">]</span>
+<a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="w">  </span><span class="o">]</span>
+<a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="o">}</span>
+<a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>If I log in as <code>mike</code>, I can see the newly created Todo:</p>
+<p><img alt="Screenshot" src="../img/my-notifications.png" /></p>
+<p>The Matrix server resists creating too many similar Todos. So if the user, date and
+description are the same as an existing Todo, a new Todo won't be created (-1 will be returned as the
+Todo Id).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://matrixreq.com/"  target="_blank" rel="noopener">Matrix Requirements</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>

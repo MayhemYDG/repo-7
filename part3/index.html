@@ -1,0 +1,1099 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://matrixrequirements.github.io/matrix-sdk-docs/part3/">
+      
+      
+        <link rel="prev" href="../part2/">
+      
+      
+        <link rel="next" href="../ref/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Links, Labels and Item Creation - Matrix Requirements SDK User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#links-labels-and-item-creation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-header__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Matrix Requirements SDK User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Links, Labels and Item Creation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Matrix Requirements SDK
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../part2/" class="md-tabs__link">
+        
+  
+    
+  
+  Advanced Searching
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Links, Labels and Item Creation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ref/" class="md-tabs__link">
+        
+  
+    
+  
+  Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../zee-faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-nav__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Matrix Requirements SDK User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matrix Requirements SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Searching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Links, Labels and Item Creation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Links, Labels and Item Creation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#altering-downlinks-in-one-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altering Downlinks in one Item
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Item creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploading-image-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uploading image attachments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Attachments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zee-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="links-labels-and-item-creation">Links, Labels and Item Creation</h1>
+<p>Matrix is designed such that items of a particular Category may link to other items of some particular Categories.
+For example, a Requirement should link to a Specification. A Specification to a Test, and a Test to an Executed Test.
+We call this <a href="https://docs23.matrixreq.com/usv23/traceability-rules">Traceability</a> in the documentation.</p>
+<p>You can explore the traceability rules for a project with the <code>ItemConfiguration</code> class. Let's focus on which categories link to each other, and create/edit some links between them. Here I've compiled the information into a drawing showing those categories which have downlinks: </p>
+<div class="highlight"><span class="filename">relationships.js</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheelyConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItemConfig</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheelyConfig</span><span class="p">.</span><span class="nx">getCategories</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cat</span><span class="o">:</span><span class="w"> </span><span class="nx">c</span><span class="p">,</span><span class="w"> </span><span class="nx">downLinks</span><span class="o">:</span><span class="w"> </span><span class="nx">wheelyConfig</span><span class="p">.</span><span class="nx">getItemConfiguration</span><span class="p">(</span><span class="nx">c</span><span class="p">).</span><span class="nx">downLinksRequired</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">o</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">o</span><span class="p">.</span><span class="nx">downLinks</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">o</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`  </span><span class="si">${</span><span class="nx">o</span><span class="p">.</span><span class="nx">cat</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="nx">o</span><span class="p">.</span><span class="nx">downLinks</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`digraph {\n</span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">\n rankdir=&quot;LR&quot;;\n}`</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>You'll see I also added a method to our library to return the server and project, <code>lib.getServerAndProject(connection, projectName)</code>,
+with appropriate default values for my server.</p>
+<p>The output, processed with GraphViz:</p>
+<p><span class="graphviz-light-dark" data-library-default="#789abc" data-default="#789abc" data-light="#000000" data-dark="#ffffff"></span><svg width="272pt" height="44pt" viewBox="0.00 0.00 271.79 44.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="graphviz dot"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)"><title>%3</title><polygon fill="transparent" stroke="transparent" points="-4,4 -4,-40 267.79,-40 267.79,4 -4,4"/><!-- REQ --><g id="node1" class="node"><title>REQ</title><ellipse fill="none" stroke="#789abc" cx="31.85" cy="-18" rx="31.7" ry="18"/><text text-anchor="middle" x="31.85" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#789abc">REQ</text></g><!-- SPEC --><g id="node2" class="node"><title>SPEC</title><ellipse fill="none" stroke="#789abc" cx="136.74" cy="-18" rx="37.09" ry="18"/><text text-anchor="middle" x="136.74" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#789abc">SPEC</text></g><!-- REQ&#45;&gt;SPEC --><g id="edge1" class="edge"><title>REQ&#45;&gt;SPEC</title><path fill="none" stroke="#789abc" d="M63.72,-18C71.8,-18 80.7,-18 89.4,-18"/><polygon fill="#789abc" stroke="#789abc" points="89.46,-21.5 99.46,-18 89.46,-14.5 89.46,-21.5"/></g><!-- TC --><g id="node3" class="node"><title>TC</title><ellipse fill="none" stroke="#789abc" cx="236.79" cy="-18" rx="27" ry="18"/><text text-anchor="middle" x="236.79" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#789abc">TC</text></g><!-- SPEC&#45;&gt;TC --><g id="edge2" class="edge"><title>SPEC&#45;&gt;TC</title><path fill="none" stroke="#789abc" d="M173.97,-18C182.26,-18 191.07,-18 199.36,-18"/><polygon fill="#789abc" stroke="#789abc" points="199.51,-21.5 209.51,-18 199.51,-14.5 199.51,-21.5"/></g></g></svg></p>
+<h2 id="altering-downlinks-in-one-item">Altering Downlinks in one Item</h2>
+<p>Let's write a program that finds a random SPEC item which links to a TC. We'll remove the TC link and ensure that our now-changed
+item doesn't show up in the original query for SPECs which link to TCs. Then we'll put things back as we found them.
+This demonstrates making changes that affect the server.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">change-downlink.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Changing for a test&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeDownlinks</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mrql:category=SPEC and downLink=TC&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">specsWithTCs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">specsWithTCs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">specsWithTCs</span><span class="p">[</span><span class="nx">itemIndex</span><span class="p">];</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="sb">`Found </span><span class="si">${</span><span class="nx">specsWithTCs</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb"> SPEC Items that have TC downlinks. Choosing </span><span class="si">${</span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb"> at random.`</span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">oldDownlinks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">spec</span><span class="p">.</span><span class="nx">getDownlinks</span><span class="p">()];</span><span class="w">  </span><span class="c1">// Ensure we copy the array, as we need it later.</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">oldDownlinks</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb"> linked to </span><span class="si">${</span><span class="nx">oldDownlinks</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">to</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="nx">spec</span><span class="p">.</span><span class="nx">removeDownlink</span><span class="p">(</span><span class="nx">oldDownlinks</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">to</span><span class="p">);</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">updateItem</span><span class="p">(</span><span class="nx">spec</span><span class="p">);</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Item updated...re-running search query..`</span><span class="p">);</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">query2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="c1">// Ensure spec is not present.</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">query2</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()).</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="c1">// set things right again.</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="nx">spec</span><span class="p">.</span><span class="nx">addDownlink</span><span class="p">(</span><span class="nx">oldDownlinks</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">to</span><span class="p">);</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">updateItem</span><span class="p">(</span><span class="nx">spec</span><span class="p">);</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">query3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="c1">// Ensure spec is present.</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">query3</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()).</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Success changing and restoring </span><span class="si">${</span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>Note <strong>line 21</strong> where we save our changes to the server. <code>Project.updateItem()</code> returns a fresh copy of the item.
+Running the application gives the following output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>change-downlink
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Debugger<span class="w"> </span>attached.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Found<span class="w"> </span><span class="m">4</span><span class="w"> </span>SPEC<span class="w"> </span>Items<span class="w"> </span>that<span class="w"> </span>have<span class="w"> </span>TC<span class="w"> </span>downlinks.<span class="w"> </span>Choosing<span class="w"> </span>SPEC-11<span class="w"> </span>at<span class="w"> </span>random.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SPEC-11<span class="w"> </span>linked<span class="w"> </span>to<span class="w"> </span>TC-4
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Item<span class="w"> </span>updated...re-running<span class="w"> </span>search<span class="w"> </span>query..
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Success<span class="w"> </span>changing<span class="w"> </span>and<span class="w"> </span>restoring<span class="w"> </span>SPEC-11.
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>debugger<span class="w"> </span>to<span class="w"> </span>disconnect...
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$
+</code></pre></div>
+<h2 id="labels">Labels</h2>
+<p>Labels in Matrix are quite sophisticated. In the WHEELY_CLIENT_TESTS project, there is an "XOR" label with two values:</p>
+<ul>
+<li>DAYTIME</li>
+<li>NIGHTTIME</li>
+</ul>
+<p>If one of these labels is set on an Item, then the other is set, the first label will be removed. The client enforces the label rules.
+Additionally, labels can be limited to particular categories. Let's try and set the DAYTIME label on a REQ.</p>
+<div class="highlight"><span class="filename">bad-set-label.js</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">reqs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=REQ&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">reqs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reqs</span><span class="p">[</span><span class="nx">itemIndex</span><span class="p">];</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">(</span><span class="s2">&quot;DAYTIME&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Looking at the output, we've been rebuked!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>bad-set-label
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>/Users/mstanton/work/matrix-sdk-docs/codes/node_modules/matrix-requirements-sdk/server/index.js:8535
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">                </span>throw<span class="w"> </span>new<span class="w"> </span>Error<span class="o">(</span><span class="sb">`</span>Category<span class="w"> </span><span class="si">${</span><span class="nv">this</span><span class="p">.type</span><span class="si">}</span><span class="w"> </span>doesn<span class="s1">&#39;t allow labels`);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s1">                      ^</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s1">Error: Category REQ doesn&#39;</span>t<span class="w"> </span>allow<span class="w"> </span>labels
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span>at<span class="w"> </span>Item.verifyLabelsAllowed<span class="w"> </span><span class="o">(</span>/Users/mstanton/work/matrix-sdk-docs/codes/node_modules/matrix-requirements-sdk/server/index.js:8535:23<span class="o">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span>at<span class="w"> </span>Item.setLabel<span class="w"> </span><span class="o">(</span>/Users/mstanton/work/matrix-sdk-docs/codes/node_modules/matrix-requirements-sdk/server/index.js:8559:14<span class="o">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span>at<span class="w"> </span>run<span class="w"> </span><span class="o">(</span>/Users/mstanton/work/matrix-sdk-docs/codes/bad-set-label.js:9:9<span class="o">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span>at<span class="w"> </span>process.processTicksAndRejections<span class="w"> </span><span class="o">(</span>node:internal/process/task_queues:95:5<span class="o">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>Node.js<span class="w"> </span>v18.11.0
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>Note that the exception was thrown on the call to <code>Item.setLabel()</code>, and no trip to the server was made. This is because the
+SDK has the label configuration locally, and can enforce those rules. Looking at the Label settings, we see that this label only
+works on TC Items:</p>
+<p><img alt="Screenshot" src="../img/label-settings.png" /></p>
+<p>Let's retrieve an existing TC Item and do some experiments. We've also got "OR" labels "ORANGE" and "APPLE" in our Label configuration.</p>
+<div class="highlight"><span class="filename">set-labels.js</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getLabels</span><span class="p">();</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">msg</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`  Labels: </span><span class="si">${</span><span class="nx">labels</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">tcs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=TC&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">itemIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">tcs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tcs</span><span class="p">[</span><span class="nx">itemIndex</span><span class="p">];</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">oldLabels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[...</span><span class="nx">tc</span><span class="p">.</span><span class="nx">getLabels</span><span class="p">()];</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Initial state&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nx">tc</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">(</span><span class="s2">&quot;DAYTIME&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After set of DAYTIME (xor label)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nx">tc</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">(</span><span class="s2">&quot;NIGHTTIME&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After set of NIGHTTIME (xor label)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nx">tc</span><span class="p">.</span><span class="nx">setLabel</span><span class="p">(</span><span class="s2">&quot;APPLE&quot;</span><span class="p">).</span><span class="nx">setLabel</span><span class="p">(</span><span class="s2">&quot;ORANGE&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After set of APPLE and ORANGE (or labels)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="nx">tc</span><span class="p">.</span><span class="nx">unsetLabel</span><span class="p">(</span><span class="s2">&quot;DAYTIME&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;After unset of DAYTIME (should have no effect)&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="nx">tc</span><span class="p">.</span><span class="nx">setLabels</span><span class="p">([]);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="nx">printLabels</span><span class="p">(</span><span class="nx">tc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Labels set to empty&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">tc</span><span class="p">.</span><span class="nx">needsSave</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">tc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb"> is dirty, not saving to the server`</span><span class="p">);</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Running the code above, we get:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>set-labels
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>TC-1:<span class="w"> </span>Initial<span class="w"> </span>state
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>Labels:<span class="w"> </span>ORANGE,<span class="w"> </span>NIGHTTIME,<span class="w"> </span>FORPRINTING
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>TC-1:<span class="w"> </span>After<span class="w"> </span><span class="nb">set</span><span class="w"> </span>of<span class="w"> </span>DAYTIME<span class="w"> </span><span class="o">(</span>xor<span class="w"> </span>label<span class="o">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>Labels:<span class="w"> </span>ORANGE,<span class="w"> </span>FORPRINTING,<span class="w"> </span>DAYTIME
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>TC-1:<span class="w"> </span>After<span class="w"> </span><span class="nb">set</span><span class="w"> </span>of<span class="w"> </span>NIGHTTIME<span class="w"> </span><span class="o">(</span>xor<span class="w"> </span>label<span class="o">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span>Labels:<span class="w"> </span>ORANGE,<span class="w"> </span>FORPRINTING,<span class="w"> </span>NIGHTTIME
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>TC-1:<span class="w"> </span>After<span class="w"> </span><span class="nb">set</span><span class="w"> </span>of<span class="w"> </span>APPLE<span class="w"> </span>and<span class="w"> </span>ORANGE<span class="w"> </span><span class="o">(</span>or<span class="w"> </span>labels<span class="o">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span>Labels:<span class="w"> </span>ORANGE,<span class="w"> </span>FORPRINTING,<span class="w"> </span>NIGHTTIME,<span class="w"> </span>APPLE
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>TC-1:<span class="w"> </span>After<span class="w"> </span><span class="nb">unset</span><span class="w"> </span>of<span class="w"> </span>DAYTIME<span class="w"> </span><span class="o">(</span>should<span class="w"> </span>have<span class="w"> </span>no<span class="w"> </span>effect<span class="o">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span>Labels:<span class="w"> </span>ORANGE,<span class="w"> </span>FORPRINTING,<span class="w"> </span>NIGHTTIME,<span class="w"> </span>APPLE
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>TC-1:<span class="w"> </span>Labels<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span>empty
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span>Labels:<span class="w"> </span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>TC-1<span class="w"> </span>is<span class="w"> </span>dirty,<span class="w"> </span>not<span class="w"> </span>saving<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>server
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>Note that the DAYTIME label was removed when we set NIGHTTIME. Whereas the APPLE and ORANGE
+labels should not toggle on or off as we set one or the other. They are "OR" labels, not "XOR" labels.</p>
+<h2 id="item-creation">Item creation</h2>
+<p>The SDK is designed to support you in creating new Items. Generally, no trip to the server is necessary during
+construction of an Item. Once the Project configuration is locally available, Fields and Labels can be set
+in a validated way, as demonstrated above with Labels.</p>
+<p>The important methods for creating and saving Items are on the <strong>Project</strong>.</p>
+<ul>
+<li><code>Project.createItem(category: string): Item</code> - No trip to the server is made. An Item with no Id is returned.</li>
+<li><code>Project.putItem(folderId: string, item: Item): Promise&lt;Item&gt;</code> - Save an Item with no Id to the server.</li>
+<li><code>Project.updateItem(item: Item): Promise&lt;Item&gt;</code> - update an existing Item.</li>
+<li><code>Project.deleteItem(itemId: string, force?: boolean)</code> - Force must be true if the Item is a FOLDER with children.</li>
+</ul>
+<p>Let's create a UC (Use Case) object. There is a <em>steplist</em> Field type called "Use Case Steps". It will be
+interesting to see how you add rows to a table:</p>
+<div class="highlight"><span class="filename">create-uc.js</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">createItem</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">();</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nx">uc</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">().</span><span class="nx">setHtml</span><span class="p">(</span><span class="s2">&quot;This is a test&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tableHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Open fridge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Fridge door opens&quot;</span><span class="p">]);</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Get milk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Milk is in hand&quot;</span><span class="p">]);</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Drink milk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Milk is gone&quot;</span><span class="p">]);</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">columnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">columnNumberToFieldId</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">setColumnData</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">columnName</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Throw milk away&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Saving our first Item&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">putItem</span><span class="p">(</span><span class="s2">&quot;F-UC-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">uc</span><span class="p">);</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Created Item </span><span class="si">${</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">}</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Running gives the output <code>Created Item UC-4</code> on my server, with the following screenshot:</p>
+<p><img alt="Screenshot" src="../img/new-uc.png" /></p>
+<p>It turns out the milk is spoiled! We can change "Drink milk" in the 3rd row of the table like so:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">columnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">columnNumberToFieldId</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">setColumnData</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">columnName</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Throw milk away&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="c1">// Be sure to update the server!</span>
+</code></pre></div>
+<p>Let's make a program that does all of that then deletes the Item, so we don't leave our database a mess.</p>
+<div class="highlight"><span class="filename">create-uc-cleanup.js</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">createItem</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">().</span><span class="nx">toString</span><span class="p">();</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nx">uc</span><span class="p">.</span><span class="nx">setTitle</span><span class="p">(</span><span class="nx">title</span><span class="p">);</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">().</span><span class="nx">setHtml</span><span class="p">(</span><span class="s2">&quot;This is a test&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">tableHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Open fridge&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Fridge door opens&quot;</span><span class="p">]);</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Get milk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Milk is in hand&quot;</span><span class="p">]);</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">insertRow</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Drink milk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Milk is gone&quot;</span><span class="p">]);</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Saving our first Item&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">    </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">putItem</span><span class="p">(</span><span class="s2">&quot;F-UC-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">uc</span><span class="p">);</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Created Item </span><span class="si">${</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="c1">// We should get the tableHandler again, because we have a new uc object.</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">columnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">columnNumberToFieldId</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">setColumnData</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">columnName</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Throw milk away&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">updateItem</span><span class="p">(</span><span class="nx">uc</span><span class="p">);</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Updated Item </span><span class="si">${</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="c1">// Verify the change in the new object.</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">    </span><span class="nx">tableHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">    </span><span class="nx">assert</span><span class="p">(</span><span class="nx">tableHandler</span><span class="p">.</span><span class="nx">getColumnData</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">columnName</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Throw milk away&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">deleteItem</span><span class="p">(</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">());</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Deleted Item </span><span class="si">${</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="p">}</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>After running that, you can look at the changes made on your Matrix Project, and you'll see the delete
+mentioned at the top:</p>
+<p><img alt="Screenshot" src="../img/deleted-uc.png" /></p>
+<h2 id="uploading-image-attachments">Uploading image attachments</h2>
+<p>A <em>Richtext</em> Field can display images.
+When we upload an attachment to the server, we're given back information we
+can turn into a URL to retrieve the image from the server again. Let's just try uploading an image
+and printing the URL returned by the server. We need the <a href="https://www.npmjs.com/package/axios"><strong>Axios</strong></a> library to do this.
+To load <strong>Axios</strong> into your project, run the following at the command prompt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>npm<span class="w"> </span>install<span class="w"> </span>axios
+</code></pre></div>
+<p>Below, we pass the Axios library to <code>Project.uploadLocalFile()</code> as the first parameter.
+We also need to create stream for the file on line 10.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">upload-image.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;axios&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Creating attachment&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">__dirname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/resources/typewriter.jpg&quot;</span><span class="p">;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">filePath</span><span class="p">);</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">uploadLocalFile</span><span class="p">(</span><span class="nx">axios</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Uploading...&quot;</span><span class="p">);</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">    </span><span class="c1">// Convert the result to a url</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">computeFileUrl</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Visit </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb"> to get your file`</span><span class="p">);</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="p">}</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>You'll see output like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>upload-image
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Uploading...
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Uploading...
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Visit<span class="w"> </span>https://clouds5.matrixreq.com/rest/1/WHEELY_OBSERVABLE/file/11075?key<span class="o">=</span>key_elnjk70etp7p1qadc5vuqss634<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>your<span class="w"> </span>file
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>Note that we're getting the image with <code>https</code>, but it is possible to get it without authentication. Just change
+the protocol to <code>http</code>. You can alter this on your Matrix server, such that all images require authentication.</p>
+<p>To add an uploaded image to a Richtext field, simply reference the URL in an html <code>img</code> tag, like so:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">place-image.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;axios&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Creating attachment&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">__dirname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/resources/typewriter.jpg&quot;</span><span class="p">;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">filePath</span><span class="p">);</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">uploadLocalFile</span><span class="p">(</span><span class="nx">axios</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Uploading...&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">    </span><span class="c1">// Convert the result to a url</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">computeFileUrl</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a>
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="w">    </span><span class="c1">// Find a UC and add the image to the bottom of the description.</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="w">    </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">).</span><span class="nx">create</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ucIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForIds</span><span class="p">(</span><span class="s2">&quot;mrql:category=UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="w">    </span><span class="c1">// Take the first one.</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">ucIds</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">handler</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">();</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="w">    </span><span class="nx">text</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`Adding an image with the SDK: &lt;img width=&quot;400&quot; src=&quot;</span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">&quot;&gt;&lt;br&gt;`</span><span class="p">;</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="w">    </span><span class="nx">handler</span><span class="p">.</span><span class="nx">setHtml</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="w">    </span><span class="nx">uc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">updateItem</span><span class="p">(</span><span class="nx">uc</span><span class="p">);</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Added image to </span><span class="si">${</span><span class="nx">uc</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="p">}</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30"></a>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>Running at the command prompt reveals:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>place-image
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Uploading...
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Uploading...
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Added<span class="w"> </span>image<span class="w"> </span>to<span class="w"> </span>UC-1
+</code></pre></div>
+<p>Which looks like this in the Matrix application:</p>
+<p><img alt="Screenshot" src="../img/typewriter-added.png" /></p>
+<h2 id="file-attachments">File Attachments</h2>
+<p>You can also upload attachments to be stored by <code>fileManager</code> fields. I've added
+a <code>fileManager</code> field to category SPEC, and attached a file. Our FieldHandler
+for the <code>fileManager</code> field type is bare-bones, only providing the <code>getData()</code> and
+<code>setData(string)</code> methods that every FieldHandler provides. We'll have to examine the
+data format in order to work with it correctly.</p>
+<div class="highlight"><span class="filename">get-attachments.js</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;SPEC-2&quot;</span><span class="p">);</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spec</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Files&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">fileData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">fileData</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="p">}</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>The code above prints out the JSON object it expects in the <code>fileManager</code> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>get-attachments
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">[</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="o">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span>fileName:<span class="w"> </span><span class="s1">&#39;cdt-overview.jpg&#39;</span>,
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span>fileId:<span class="w"> </span><span class="s1">&#39;11085?key=key_fb77i3bti07cku2dp1f7lcglib&#39;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="o">]</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>The data format of the field is an array of <code>{fileName, fileId}</code> tuples, where
+<code>fileId</code> is a concatenation of two fields in the <a href="../reference/interfaces/serverSdk.AddFileAck.html">AddFileAck</a>
+structure returned by <code>Project.uploadLocalFile()</code> and <code>Project.uploadFile()</code>, <code>fileId</code> and <code>key</code>.</p>
+<p>Let's try our hand at uploading a second file and saving it:</p>
+<div class="highlight"><span class="filename">upload-file-manager.js</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">axios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;axios&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">server</span><span class="p">,</span><span class="w"> </span><span class="nx">wheely</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerAndProject</span><span class="p">();</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="c1">// Upload the file.</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">setComment</span><span class="p">(</span><span class="s2">&quot;Creating attachment&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">__dirname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/resources/typewriter.jpg&quot;</span><span class="p">;</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">filePath</span><span class="p">);</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">addFileAck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">uploadLocalFile</span><span class="p">(</span><span class="nx">axios</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Uploaded </span><span class="si">${</span><span class="nx">filePath</span><span class="si">}</span><span class="sb"> to </span><span class="si">${</span><span class="nx">wheely</span><span class="p">.</span><span class="nx">computeFileUrl</span><span class="p">(</span><span class="nx">addFileAck</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">    </span><span class="c1">// Save to &quot;Files&quot; in SPEC-2.</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;SPEC-2&quot;</span><span class="p">);</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">spec</span><span class="p">.</span><span class="nx">getFieldByName</span><span class="p">(</span><span class="s2">&quot;Files&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">    </span><span class="c1">// the field may have no data (undefined or empty string).</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">fileData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getData</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">handler</span><span class="p">.</span><span class="nx">getData</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="nx">fileData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">getData</span><span class="p">());</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">    </span><span class="nx">fileData</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">        </span><span class="nx">fileName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;typewriter.jpg&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">        </span><span class="nx">fileId</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">addFileAck</span><span class="p">.</span><span class="nx">fileId</span><span class="si">}</span><span class="sb">?key=</span><span class="si">${</span><span class="nx">addFileAck</span><span class="p">.</span><span class="nx">key</span><span class="si">}</span><span class="sb">`</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">dir</span><span class="p">(</span><span class="nx">fileData</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">depth</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">    </span><span class="nx">handler</span><span class="p">.</span><span class="nx">setData</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">fileData</span><span class="p">));</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">    </span><span class="nx">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">updateItem</span><span class="p">(</span><span class="nx">spec</span><span class="p">);</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Updated </span><span class="si">${</span><span class="nx">spec</span><span class="p">.</span><span class="nx">getId</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="p">}</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Running at the command prompt, we get:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>upload-file-manager
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Uploaded<span class="w"> </span>/Users/mstanton/work/matrix-sdk-docs/codes/resources/typewriter.jpg<span class="w"> </span>to
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w"> </span>https://clouds5.matrixreq.com/rest/1/WHEELY_OBSERVABLE/file/11088?key<span class="o">=</span>key_r8ovlj5cf9d1o53t5qfhli9p9r
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="o">[</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="o">{</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span>fileName:<span class="w"> </span><span class="s1">&#39;cdt-overview.jpg&#39;</span>,
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span>fileId:<span class="w"> </span><span class="s1">&#39;11085?key=key_fb77i3bti07cku2dp1f7lcglib&#39;</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">  </span><span class="o">}</span>,
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span><span class="o">{</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span>fileName:<span class="w"> </span><span class="s1">&#39;typewriter.jpg&#39;</span>,
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span>fileId:<span class="w"> </span><span class="s1">&#39;11088?key=key_r8ovlj5cf9d1o53t5qfhli9p9r&#39;</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span><span class="o">}</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="o">]</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>Updated<span class="w"> </span>SPEC-2
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>mstanton@darkstar:~/work/matrix-sdk-docs/codes<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>Looking at SPEC-2 in the Matrix application, we can see we've got two attachments that
+can be downloaded:</p>
+<p><img alt="Screenshot" src="../img/file-manager.png" /></p>
+<p>We hope you enjoy using the SDK to solve problems. Beyond this guide, the <a href="../zee-faq/">FAQ</a> and
+<a href="../ref/">Reference documentation</a> may be helpful.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://matrixreq.com/"  target="_blank" rel="noopener">Matrix Requirements</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>

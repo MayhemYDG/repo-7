@@ -1,0 +1,873 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://matrixrequirements.github.io/matrix-sdk-docs/part2/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../part3/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Advanced Searching - Matrix Requirements SDK User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-searching" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-header__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Matrix Requirements SDK User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Searching
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Matrix Requirements SDK
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Advanced Searching
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../part3/" class="md-tabs__link">
+        
+  
+    
+  
+  Links, Labels and Item Creation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ref/" class="md-tabs__link">
+        
+  
+    
+  
+  Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../zee-faq/" class="md-tabs__link">
+        
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Matrix Requirements SDK User&#39;s Guide" class="md-nav__button md-logo" aria-label="Matrix Requirements SDK User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Matrix Requirements SDK User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Matrix Requirements SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Advanced Searching
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Searching
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#searching-with-a-mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching with a mask
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masking-across-multiple-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masking across multiple Categories
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#category-object-also-returns-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Category object also returns search results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-search-retrieving-label-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      A search retrieving Label information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raw-low-level-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      "Raw" (low-level) search results
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-log-of-rest-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Log of REST requests
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links, Labels and Item Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ref/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zee-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="advanced-searching">Advanced Searching</h1>
+<p>This document is part of an guide to using the Matrix Requirements SDK (github page <a href="https://github.com/MatrixRequirements/matrix-sdk">here</a>,
+and part one of this guide <a href="../">here</a>). We'll continue working in the Node environment established in <a href="../">part one</a>.</p>
+<p>We've already seen the method <code>Project.searchForIds()</code> which takes a query string and returns a list of Item IDs.
+But we may want to execute more sophisticated searches, and for this we have two methods:</p>
+<ul>
+<li><code>searchForItems(term, filter, treeOrder, mask)</code> which returns an array of <code>Item</code> objects, and</li>
+<li><code>searchRaw(term, options)</code> which returns an array of <code>ISearchResult</code> objects.</li>
+</ul>
+<p>The methods do the same thing, but <strong>searchForItems</strong> is designed to be friendlier to work with.</p>
+<h2 id="searching-with-a-mask">Searching with a mask</h2>
+<p>We'll create a mask that gives us back <em>partial Items</em> with only one field brought down from the server:</p>
+<div class="highlight"><span class="filename">partial-search-1.js</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheely</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// Construct a mask that includes fields, but no labels or up or down links.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeFields</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catREQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;REQ&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">descriptionFieldId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">catREQ</span><span class="p">.</span><span class="nx">getFieldIdFromLabel</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMask</span><span class="p">(</span><span class="nx">catREQ</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">descriptionFieldId</span><span class="p">]);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="c1">// Now bring down all Items of category REQ with this field mask.</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">reqs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=REQ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">reqs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reqs</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="nx">assert</span><span class="p">(</span><span class="o">!</span><span class="nx">item</span><span class="p">.</span><span class="nx">hasAllFields</span><span class="p">());</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nx">assert</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">hasFieldId</span><span class="p">(</span><span class="nx">descriptionFieldId</span><span class="p">));</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getId</span><span class="p">();</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getTitle</span><span class="p">();</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">descriptionField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getSingleFieldByName</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">).</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">descriptionField</span><span class="p">.</span><span class="nx">getHtml</span><span class="p">();</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`&lt;tr&gt;&lt;td&gt;</span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">&lt;/td&gt;&lt;td&gt;</span><span class="si">${</span><span class="nx">title</span><span class="si">}</span><span class="sb">&lt;/td&gt;&lt;td&gt;</span><span class="si">${</span><span class="nx">description</span><span class="si">}</span><span class="sb">&lt;/td&gt;&lt;/tr&gt;`</span><span class="p">);</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`&lt;table&gt;</span><span class="si">${</span><span class="nx">rows</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">&lt;/table&gt;`</span><span class="p">);</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Note that we asserted that the Items brought down only have the one Category REQ field we asked for, "Description". Typical HTML output is below:</p>
+<table><tr><td>REQ-1</td><td>Design / Looks</td><td><div>The wheelchair should not look like a medical device but like something which looks nice to kids from 6 to 10 years.</div>
+<div>&nbsp;</div></td></tr>
+<tr><td>REQ-2</td><td>Sized for Kids</td><td><div xmlns="http://www.w3.org/1999/xhtml"><div xmlns="http://www.w3.org/1999/xhtml">The wheelchair should fit all standard heights and weights for kids from 6 to 12 years of age.<div><br /></div>
+
+<div id="maincontent2" style="margin: 0px; padding: 0px;"><div id="main-body" style="float: left; width: 612px;"><div id="main-content" style="color: rgb(51, 51, 51); margin: 0px 0px 10px; overflow: hidden;"><div id="article-content"><div id="main-content" style="margin: 0px 0px 10px; overflow: hidden;"><div id="714"><h4 align="center" style="color: rgb(51, 51, 51); line-height: 1.6em; margin: 0px 5px; padding: 0px; font-weight: bold;">3 to 15 Years</h4><table cellspacing="0" cellpadding="0" border="1" style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size: x-small; margin: 0px;"><tbody><tr><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Boys</p></th><th valign="top" width="216" colspan="2" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p align="center" style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Average Values</p></th><th valign="top" width="216" colspan="2" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p align="center" style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Normal Range</p></th></tr><tr><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Age (Years)</p></th><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Weight (Pounds)</p></th><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Length (Inches)</p></th><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Weight (Pounds)</p></th><th valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(62, 109, 142); font-size: small; padding: 5px 10px; background-color: rgb(163, 180, 96);"><p style="color: rgb(255, 255, 255); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-family: arial; font-weight: normal;">Length (Inches)</p></th></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">2</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">27.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">34.2</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">22.8-33.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">31.7-36.3</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">3</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">31.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">37.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">26.1-38.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">35.2-39.8</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">4</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">36.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">40.3</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">29.0-44.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">37.5-43.2</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">40.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">43.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">33.0-52.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">39.8-45.7</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">6</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">45.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">45.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">36.5-59.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">42.2-48.6</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">7</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">50.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">48.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">40.5-68.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">44.5-51.3</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">8</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">56.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">50.4</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">45.0-77.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">46.7-54.3</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">9</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">63.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">52.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">49.5-88.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">48.7-56.5</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">10</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">70.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">54.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">56.0-100.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">50.5-58.8</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">11</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">78.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">56.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">60.5-114.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">52.0-61.0</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">12</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">88.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">58.7</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">66.5-130.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">54.0-63.5</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">13</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">100.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">61.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">74.5-144.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">56.3-66.6</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">14</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">112.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">64.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">84.0-159.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">59.1-69.7</p></td></tr><tr><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">15</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">123.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">67.0</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">92.5-172.5</p></td><td valign="top" width="108" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(216, 221, 239); color: rgb(68, 68, 68); padding: 5px 10px;"><p style="color: rgb(51, 51, 51); line-height: 1.5em; margin-top: 5px; margin-bottom: 8px; padding: 0px 5px; font-size: 13px; font-family: Arial, Verdana, Geneva, sans-serif;">61.6-71.7</p></td></tr></tbody></table></div></div></div><div></div></div></div></div></div></div></td></tr>
+<tr><td>REQ-3</td><td>Wheels</td><td><div xmlns="http://www.w3.org/1999/xhtml">There must be 4 wheels makes it better</div></td></tr>
+<tr><td>REQ-4</td><td>Seat</td><td><div xmlns="http://www.w3.org/1999/xhtml">There must be a seat which<div><ul><li>is comfortable for extended periods of sitting (&gt; 8 hours)</li><li>can be cleaned easily</li></ul><br /></div></div></td></tr>
+<tr><td>REQ-5</td><td>Tablet / Ipad  Holder</td><td><div xmlns="http://www.w3.org/1999/xhtml">The wheelchair must allow to attach a table from 7" to 11"</div></td></tr></table>
+
+<h2 id="masking-across-multiple-categories">Masking across multiple Categories</h2>
+<p>What if we are looking for the <strong>Description</strong> field if we have a <strong>REQ</strong> Item, and the <strong>Use Case Steps</strong> field if we have a <strong>UC</strong> item?
+No problem! You can construct the mask so that it will apply correctly to each kind of item returned:</p>
+<div class="highlight"><span class="filename">partial-search-2.js</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheely</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">// Construct a mask that includes fields, but no labels or up or down links.</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeFields</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catREQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;REQ&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">descriptionFieldId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">catREQ</span><span class="p">.</span><span class="nx">getFieldIdFromLabel</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMask</span><span class="p">(</span><span class="nx">catREQ</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">descriptionFieldId</span><span class="p">]);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catUC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ucStepsFieldId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">catUC</span><span class="p">.</span><span class="nx">getFieldIdFromLabel</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMask</span><span class="p">(</span><span class="nx">catUC</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">ucStepsFieldId</span><span class="p">]);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="c1">// Now bring down all Items of category REQ and UC with this field mask.</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">reqs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=REQ or category=UC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">reqCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">ucCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">reqs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reqs</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">        </span><span class="nx">assert</span><span class="p">(</span><span class="o">!</span><span class="nx">item</span><span class="p">.</span><span class="nx">hasAllFields</span><span class="p">());</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">catUC</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">            </span><span class="nx">assert</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">hasFieldId</span><span class="p">(</span><span class="nx">ucStepsFieldId</span><span class="p">));</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">            </span><span class="nx">ucCount</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">catREQ</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">            </span><span class="nx">assert</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">hasFieldId</span><span class="p">(</span><span class="nx">descriptionFieldId</span><span class="p">));</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">            </span><span class="nx">reqCount</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Project has </span><span class="si">${</span><span class="nx">reqCount</span><span class="si">}</span><span class="sb"> REQ Items, and </span><span class="si">${</span><span class="nx">ucCount</span><span class="si">}</span><span class="sb"> UC Items`</span><span class="p">);</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="p">}</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>Run this program for the following result:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>partial-search-2
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Project<span class="w"> </span>has<span class="w"> </span><span class="m">22</span><span class="w"> </span>REQ<span class="w"> </span>Items,<span class="w"> </span>and<span class="w"> </span><span class="m">3</span><span class="w"> </span>UC<span class="w"> </span>Items
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<h2 id="category-object-also-returns-search-results">Category object also returns search results</h2>
+<p>If you want to get all the items for a particular Category, you can request this directly from the
+Category object without using one of the search methods already mentioned, see line 15 below. And you can still
+use a mask to retrieve partial items if you like.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">partial-search-3.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">assert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;assert&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheely</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="c1">// Construct a mask that includes fields, but no labels or up or down links.</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeFields</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catUC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ucStepsFieldId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">catUC</span><span class="p">.</span><span class="nx">getFieldIdFromLabel</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMask</span><span class="p">(</span><span class="nx">catUC</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">ucStepsFieldId</span><span class="p">]);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">UCs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">catUC</span><span class="p">.</span><span class="nx">getItems</span><span class="p">({</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">uc</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">UCs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">        </span><span class="nx">assert</span><span class="p">(</span><span class="o">!</span><span class="nx">uc</span><span class="p">.</span><span class="nx">hasAllFields</span><span class="p">());</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">        </span><span class="nx">assert</span><span class="p">(</span><span class="nx">uc</span><span class="p">.</span><span class="nx">hasFieldId</span><span class="p">(</span><span class="nx">ucStepsFieldId</span><span class="p">));</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fieldHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">uc</span><span class="p">.</span><span class="nx">getFieldById</span><span class="p">(</span><span class="nx">ucStepsFieldId</span><span class="p">).</span><span class="nx">getHandler</span><span class="p">();</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">        </span><span class="nx">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">fieldHandler</span><span class="p">.</span><span class="nx">getRowCount</span><span class="p">();</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`The average number of Use Case Steps in UC Items is </span><span class="si">${</span><span class="nx">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">UCs</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="p">}</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>And the output follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>partial-search-3
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>The<span class="w"> </span>average<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>Use<span class="w"> </span>Case<span class="w"> </span>Steps<span class="w"> </span><span class="k">in</span><span class="w"> </span>UC<span class="w"> </span>Items<span class="w"> </span>is<span class="w"> </span><span class="m">5</span>.666666666666667
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<h2 id="a-search-retrieving-label-information">A search retrieving Label information</h2>
+<p>Of course, maybe you don't want any Fields to be brought down at all, only, say, labels.
+It's all in the <code>constructSearchFieldMask()</code> function which takes a helper object:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  * includeFields      default true
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  * includeLabels      default true
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  * includeDownlinks   default false
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  * includeUplinks     default false
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  For example:
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    mask = constructSearchFieldMask({ includeFields: false, includeUplinks: true });
+</code></pre></div>
+<p>Let's have a code example where we get Item objects, but no Category Fields, thus reducing
+download time. We get all the labels and print out the ones we found:</p>
+<div class="highlight"><span class="filename">partial-search-4.js</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheely</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="c1">// Construct a mask that only includes labels.</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeLabels</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catUC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ucStepsFieldId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">catUC</span><span class="p">.</span><span class="nx">getFieldIdFromLabel</span><span class="p">(</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMask</span><span class="p">(</span><span class="nx">catUC</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">ucStepsFieldId</span><span class="p">]);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=TC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">mask</span><span class="p">);</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">foundLabels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">getLabels</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">            </span><span class="nx">foundLabels</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">label</span><span class="p">);</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">foundLabels</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span><span class="w"> </span><span class="nx">output</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">l</span><span class="p">);</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Found the following labels on TC Items: </span><span class="si">${</span><span class="nx">output</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="p">}</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>And the output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>partial-search-4.js
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Found<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>labels<span class="w"> </span>on<span class="w"> </span>TC<span class="w"> </span>Items:<span class="w"> </span>ORANGE,<span class="w"> </span>NIGHTTIME,<span class="w"> </span>FORPRINTING,<span class="w"> </span>APPLE
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>Cool, we can see our Labels on TCs.</p>
+<h2 id="raw-low-level-search-results">"Raw" (low-level) search results</h2>
+<p>If you want, you can go more "old school" and use method <code>searchRaw()</code> which takes parameter <strong>fieldList</strong>. You can use
+the mask as we've described to come up with your field mask, and then you can ask the mask for it's <strong>fieldMaskString</strong> in order
+to fill in that parameter correctly. Note that the field IDs are referenced, because those are unique:</p>
+<div class="highlight"><span class="filename">partial-search-5.js</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMaskString</span><span class="p">(</span><span class="nx">project</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="c1">// Construct a mask for the purposes of getting a mask field string</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">constructSearchFieldMask</span><span class="p">({</span><span class="w"> </span><span class="nx">includeFields</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catREQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;REQ&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMaskByNames</span><span class="p">(</span><span class="nx">catREQ</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Description&quot;</span><span class="p">]);</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">catUC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">project</span><span class="p">.</span><span class="nx">getCategory</span><span class="p">(</span><span class="s2">&quot;UC&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nx">mask</span><span class="p">.</span><span class="nx">addMaskByNames</span><span class="p">(</span><span class="nx">catUC</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Use Case Steps&quot;</span><span class="p">]);</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">mask</span><span class="p">.</span><span class="nx">getFieldMaskString</span><span class="p">();</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">wheely</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">);</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maskString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getMaskString</span><span class="p">(</span><span class="nx">wheely</span><span class="p">);</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">searchResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wheely</span><span class="p">.</span><span class="nx">searchRaw</span><span class="p">(</span><span class="s2">&quot;mrql:category=REQ or category=UC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">maskString</span><span class="p">);</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">searchResults</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">strValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">strValue</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="si">}</span><span class="sb">...`</span><span class="p">);</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="p">}</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="nx">run</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+</code></pre></div>
+<p>The output of <code>searchRaw</code> isn't wrapped into <strong>Item</strong> objects, but remains in a low-level type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mstanton@darkstar:~/work/matrix-sdk/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>partial-search-5
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">{</span><span class="s2">&quot;itemId&quot;</span>:<span class="s2">&quot;REQ-1&quot;</span>,<span class="s2">&quot;version&quot;</span>:3,<span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;Design / Looks&quot;</span>,<span class="s2">&quot;down...</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s2">{&quot;</span>itemId<span class="s2">&quot;:&quot;</span>REQ-2<span class="s2">&quot;,&quot;</span>version<span class="s2">&quot;:3,&quot;</span>title<span class="s2">&quot;:&quot;</span>Sized<span class="w"> </span><span class="k">for</span><span class="w"> </span>Kids<span class="s2">&quot;,&quot;</span>down...
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="o">{</span><span class="s2">&quot;itemId&quot;</span>:<span class="s2">&quot;REQ-3&quot;</span>,<span class="s2">&quot;version&quot;</span>:24,<span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;Wheels&quot;</span>,<span class="s2">&quot;downlinks&quot;</span>:...
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="o">{</span><span class="s2">&quot;itemId&quot;</span>:<span class="s2">&quot;REQ-4&quot;</span>,<span class="s2">&quot;version&quot;</span>:1,<span class="s2">&quot;title&quot;</span>:<span class="s2">&quot;Seat&quot;</span>,<span class="s2">&quot;downlinks&quot;</span>:<span class="o">[]</span>,...
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>...
+</code></pre></div>
+<h2 id="continuous-log-of-rest-requests">Continuous Log of REST requests</h2>
+<p>The SDK also has information about the REST calls made to the server over time. There is a list of the calls made. You might use this
+list to verify that only one call was made for a powerful search request.</p>
+<div class="highlight"><span class="filename">search-fetchlog.js</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./lib.js&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nx">lib</span><span class="p">.</span><span class="nx">getServerConnection</span><span class="p">(</span><span class="s2">&quot;clouds5&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">server</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nx">server</span><span class="p">.</span><span class="nx">openProject</span><span class="p">(</span><span class="s2">&quot;WHEELY_OBSERVABLE&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">project</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nx">project</span><span class="p">.</span><span class="nx">searchForItems</span><span class="p">(</span><span class="s2">&quot;mrql:category=REQ or category=UC&quot;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nx">getFetchLog</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;\n&quot;</span><span class="p">));</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">});</span>
+</code></pre></div>
+<p>The code above was written in the classic Node style using <code>Promises</code> rather
+than <code>async/await</code> just for fun. After running, you can see 3 calls were made to the server:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>node<span class="w"> </span>search-fetchlog
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>https://clouds5.matrixreq.com/rest/1/
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>https://clouds5.matrixreq.com/rest/1/WHEELY_OBSERVABLE?adminUI<span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>https://clouds5.matrixreq.com/rest/1/WHEELY_OBSERVABLE/needle
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>mstanton@darkstar:~/examples/users-guide<span class="w"> </span><span class="o">(</span>main<span class="o">)</span>$<span class="w"> </span>
+</code></pre></div>
+<p>One for Server information. The second call for Project information. The final request ("needle") is the search.
+We were finding needles in haystacks today!</p>
+<p>Have a look at <a href="../part3/">Part 3</a> of the User's Guide for more information on saving items, uplinks
+and downlinks between items, labels and attachments. Thanks for your time!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://matrixreq.com/"  target="_blank" rel="noopener">Matrix Requirements</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>
